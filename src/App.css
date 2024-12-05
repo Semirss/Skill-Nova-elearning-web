@@ -39,7 +39,7 @@
     @apply pt-7 flex flex-col;
   }
   .left-sidebar {
-    @apply hidden md:block max-w-[270px] bg-primary min-h-screen text-white;
+    @apply hidden md:block md:fixed md:w-full max-w-[270px] bg-primary min-h-screen text-white;
   }
   .topbar {
     @apply hidden md:flex bg-primary md:bg-transparent h-14 fixed top-0 z-10 right-10 text-primary
