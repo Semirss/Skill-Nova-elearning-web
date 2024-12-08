@@ -9,6 +9,15 @@ import Dashboard from './_root/pages/Dashboard'
 import Home from './_root/pages/Home'
 import AllCourses from './_root/pages/AllCourses'
 import Rooms from './_root/pages/Rooms'
+import Room1 from './_root/pages/subpages/Room1'
+import Settings from './_root/pages/Settings'
+import Admin from './_root/admin/Admin'
+import Students from './_root/admin/Students'
+import Quizzes from './_root/admin/quizzes'
+import Questions from './_root/admin/Questions'
+// import Room1 from './_root/pages/Room1'
+// import Room2 from './_root/pages/subpages/Room2'
+// import RoomsLayout from './_root/RoomsLayout'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -26,8 +35,14 @@ function App() {
         <Route element={<PagesLayout />}>
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/all courses' element={<AllCourses />} />
+          <Route path='/settings' element={<Settings />} />
           <Route path='/rooms' element={<Rooms />} />
+          <Route path='/rooms/room1' element={<Room1 />}/>
         </Route>
+        <Route path='/admin' element={<Admin />}/>
+        <Route path='/admin/students' element={<Students />}/>
+        <Route path='/admin/quizzes' element={<Quizzes />}/>
+        <Route path='/admin/quizzes/html/questions' element={<Questions />}/>
       </Routes>
     </main>
   )
