@@ -15,6 +15,8 @@ import Admin from './_root/admin/Admin'
 import Students from './_root/admin/Students'
 import Quizzes from './_root/admin/quizzes'
 import Questions from './_root/admin/Questions'
+import Room2 from './_root/pages/subpages/Room2'
+import Room3 from './_root/pages/subpages/Room3'
 // import Room1 from './_root/pages/Room1'
 // import Room2 from './_root/pages/subpages/Room2'
 // import RoomsLayout from './_root/RoomsLayout'
@@ -38,6 +40,9 @@ function App() {
           <Route path='/settings' element={<Settings />} />
           <Route path='/rooms' element={<Rooms />} />
           <Route path='/rooms/room1' element={<Room1 />}/>
+          <Route path='/rooms/room2' element={<Room2 />}/>
+          <Route path='/rooms/room3' element={<Room3 />}/>
+          <Route path='/all courses' element={<AllCourses />}/>
         </Route>
         <Route path='/admin' element={<Admin />}/>
         <Route path='/admin/students' element={<Students />}/>

@@ -16,14 +16,17 @@ const Quizzes = () => {
             <h1 className="">Skill Nova</h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mt-20 ms-20 me-20">
-            <div className="h-52 bg-amber-200 cursor-pointer" onClick={quiz}>
+            <div className="h-52 cursor-pointer flex flex-col items-center" onClick={quiz}>
                 <h1>HTML</h1>
+                <img src="/assets/images/html.png" className="w-[14rem] h-[14rem]" alt="" />
             </div>
-            <div className="h-52 bg-amber-200 cursor-pointer" onClick={quiz}>
+            <div className="h-52 cursor-pointer flex flex-col items-center" onClick={quiz}>
                 <h1>CSS</h1>
+                <img src="/assets/images/css.png" className="w-[14rem] h-[14rem]" alt="" />
             </div>
-            <div className="h-52 bg-amber-200 cursor-pointer" onClick={quiz}>
+            <div className="h-52 cursor-pointer flex flex-col items-center" onClick={quiz}>
                 <h1>JS</h1>
+                <img src="/assets/images/js.png" className="w-[14rem] h-[14rem]" alt="" />
             </div>
             </div>
         </div>

@@ -14,41 +14,41 @@ const Rooms = () => {
           {visibleist === "all" && (
             <div className="flex flex-col gap-8 mt-14 md:mt-0 mb-20">
               <h3>All Rooms</h3>
-              <a href="/rooms/room1" className="flex flex-col items-center border-4">
+              <a href="/rooms/room1" className="flex flex-col items-center border-[1.5px] border-[#000047]">
                 <p className="pt-7">HTML Room</p>
                 <img src="/assets/images/html.png" alt="" className="w-[10rem] h-[10rem]" />
               </a>
-              <a href="" className="flex flex-col items-center border-4 gap-10 p-10">
+              <a href="/rooms/room2" className="flex flex-col items-center border-[1.5px] border-[#000047] gap-10 p-10">
                 <p>JS Room</p>
                 <img src="/assets/images/js.png" alt="" className="w-[10rem] h-[7rem]" />
               </a>
-              <a href="" className="flex flex-col items-center border-4 gap-10 p-10">
+              <a href="rooms/room3" className="flex flex-col items-center border-[1.5px] border-[#000047] gap-10 p-10">
                 <p>CSS Room</p>
                 <img src="/assets/images/css.png" alt="" className="w-[5rem] h-[5rem]" />
               </a>
             </div>
           )}
           {visibleist === 1 && (
-            <a href="/rooms/room1" className="flex flex-col items-center border-2">
+            <a href="/rooms/room1" className="flex flex-col items-center border-[1.5px] border-[#000047]">
               <p className="pt-7">HTML Room</p>
               <img src="/assets/images/html.png" alt="" className="w-[20rem] h-[20rem]" />
             </a>
           )}
           {visibleist === 2 && (
-            <a href="" className="flex flex-col items-center border-2 gap-10 p-10">
+            <a href="/rooms/room2" className="flex flex-col items-center border-[1.5px] border-[#000047] gap-10 p-10">
               <p>JS Room</p>
               <img src="/assets/images/js.png" alt="" className="w-[20rem] h-[15rem]" />
             </a>
           )}
           {visibleist === 3 && (
-            <a href="" className="flex flex-col items-center border-2 gap-10 p-10">
+            <a href="rooms/room3" className="flex flex-col items-center border-[1.5px] border-[#000047] gap-10 p-10">
               <p>CSS Room</p>
               <img src="/assets/images/css.png" alt="" className="w-[20rem] h-[20rem]" />
             </a>
           )}
         </div>
-        <div className="hidden lg:flex flex-col gap-5 w-72 bg-new items-center pt-5 pb-7
-        absolute right-20 border-2">
+        <div className="hidden lg:flex flex-col gap-5 w-72 bg-white border-2 border-gray-100 items-center pt-5 pb-7
+        absolute right-20 h-96">
           <p className="text-slate-500 text-lg border-b-2 border-gray-400">Browse Topics</p>
           <ul className="border-b-2 border-gray-400">
             <li>

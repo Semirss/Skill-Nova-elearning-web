@@ -1,6 +1,7 @@
 const SignInForm = () => {
     return (
-        <div className="auth-form">
+        <div className="auth-form bg-primary fixed left-12 right-12 md:left-[7rem] md:right-20 lg:left-[10rem] lg:right-36 xl:left-[15rem] 
+        xl:right-64 top-32 justify-center items-center h-96">
             <form action="">
                 <h1>Log In</h1>
                 <div className="input-field">
@@ -18,7 +19,7 @@ const SignInForm = () => {
                         />
                     </label>
                 </div>
-                <button>Login</button>
+                <button className="border-[1px] mt-10">Login</button>
             </form>
         </div>
     )

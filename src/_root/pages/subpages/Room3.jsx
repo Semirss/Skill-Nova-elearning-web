@@ -1,7 +1,7 @@
-const Room1 = () => {
+const Room3 = () => {
   return (
     <div className="first-room mt-14 md:mt-0">
-        <h5 className="pt-10">HTML Room</h5>
+        <h5 className="pt-10">CSS Room</h5>
         <div>
             <div>
                 <form action="" method="post" className="flex flex-col relative">
@@ -22,12 +22,12 @@ const Room1 = () => {
                     <div className="h-20 border-s-2 border-gray-400 ms-8">
                         <div className="flex gap-2 mt-4 ms-4">
                             <div className="w-10 h-10 rounded-full bg-green-900"></div>
-                            <h1 className="pt-3.5">A</h1>
+                            <h1 className="pt-3.5">B</h1>
                         </div>
-                        <p className="ps-4 pt-2">What is HTML?</p>
+                        <p className="ps-4 pt-2">What is CSS?</p>
                     </div>
                     <div className="h-12 border-s-2 border-gray-400 ms-8 mt-7 mb-5">
-                        <p className="ps-2 pt-2">HTML is stands for Hyper Text Markup Language</p>
+                        <p className="ps-2 pt-2">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     </div>
                 </div>
             </div>
@@ -36,4 +36,4 @@ const Room1 = () => {
   )
 }
 
-export default Room1
+export default Room3

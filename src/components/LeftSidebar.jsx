@@ -5,19 +5,19 @@ const LeftSidebar = () => {
         <nav className="navbar-top">
             <ul>
                 <img src="/assets/images/home.png" width={22} height={22} alt="Home Icon" />
-                <a href="">
+                <a href="/">
                     <li>Home</li>
                 </a>
             </ul>
             <ul>
                 <img src="/assets/images/dashboard.png" alt="Dashboard Icon" />
-                <a href="">
+                <a href="dashboard">
                     <li>Dashboard</li>   
                 </a>
             </ul>
             <ul>
                 <img src="/assets/images/courses.png" alt="Courses Icon" />
-                <a href="">
+                <a href="/all courses">
                     <li>All Courses</li>   
                 </a>
             </ul>
