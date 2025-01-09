@@ -1,4 +1,8 @@
 const LeftSidebar = () => {
+    const handleLogout = () => {
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userID");
+    }
   return (
     <div className="left-sidebar">
         <div className="ps-14 pt-8">SKILL NOVA</div>
@@ -36,7 +40,7 @@ const LeftSidebar = () => {
                     <li>Settings</li>
                 </a>
             </ul>
-            <ul>
+            <ul onClick={handleLogout}>
                 <img src="/assets/images/logout.png" alt="" />
                 <a href="/sign-in">
                     <li>Logout</li>

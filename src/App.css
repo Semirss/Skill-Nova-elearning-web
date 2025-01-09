@@ -17,10 +17,10 @@
     @apply font-sans bg-secondary h-[100%];
   }
   input {
-    @apply border-2 ms-2 ps-5 pe-5;
+    @apply border-2 ms-2 ps-2 pe-5;
   }
   button {
-    @apply ms-3 mt-4 bg-[#000047] ps-5 pe-5 h-10 rounded-lg text-white;
+    @apply ms-3 mt-4 bg-[#000047] ps-4 pe-5 h-10 rounded-lg text-white;
   }
   img {
     width: 22px;
@@ -35,9 +35,9 @@
   th, td {
     @apply pt-4 pb-4;
   }
-  /* td {
+  td {
     @apply ps-24 pe-24;
-  } */
+  }
   th {
     @apply bg-amber-300;
   }
@@ -48,7 +48,7 @@
     height: 100vh;
   }
   .auth-form {
-    @apply text-center pt-12 h-96 w-auto text-white;
+    @apply text-center pt-12 text-white;
   }
   .input-field {
     @apply pt-7 flex flex-col;
@@ -60,7 +60,7 @@
     @apply hidden md:flex bg-primary md:bg-transparent h-14 fixed top-0 z-10 right-10 text-primary
     ps-[37rem] pt-3 gap-5;
   }
-  .dashboard, .courses, .settings, .rooms, .first-room {
+  .dashboard, .courses, .settings, .rooms, .first-room, .course-1 {
     @apply flex flex-col text-primary
     absolute top-0 left-0 md:left-[270px] right-0 pt-20 ps-12 bottom-0;
   }
@@ -75,7 +75,7 @@
     border-radius: 100%;
   }
   .toggle-bar {
-    @apply md:hidden absolute top-0 left-0 right-0 z-10;
+    @apply md:hidden fixed top-0 left-0 right-0 z-10;
   }
   .toggle-icon {
     @apply absolute top-7 right-12 flex flex-col gap-1;
@@ -87,7 +87,7 @@
     display: block;
     @apply z-0 bg-primary text-white min-h-screen;
   }
-  #carousel .slide {
+  /* #carousel .slide {
     width: 100%;
     height: 100%;
     display: none;
@@ -98,6 +98,16 @@
   .slide {
     width: 100%;
     height: 100%;
+  } */
+   /* .all-courses {
+    @apply grid grid-cols-1 gap-x-20;
+   } */
+  .all-courses > ul, .all-room > ul {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
+    /* grid-template-columns: repeat(3, 1fr);
+    row-gap: 4rem; */
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4;
   }
 }
 

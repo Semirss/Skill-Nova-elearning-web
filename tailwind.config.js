@@ -5,6 +5,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xsm': '470px', 
+      },
       colors: {
         'primary': '#010E23',
         'secondary': '#F9F9FF',

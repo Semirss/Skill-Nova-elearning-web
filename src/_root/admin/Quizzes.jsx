@@ -17,16 +17,16 @@ const Quizzes = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mt-20 ms-20 me-20">
             <div className="h-52 cursor-pointer flex flex-col items-center" onClick={quiz}>
-                <h1>HTML</h1>
-                <img src="/assets/images/html.png" className="w-[14rem] h-[14rem]" alt="" />
+                {/* <h1>HTML</h1> */}
+                <img src="/assets/images/html.png" className="w-[20rem] h-[15rem] border-gray-100 bg-white border-[1px] rounded-lg" alt="" />
             </div>
             <div className="h-52 cursor-pointer flex flex-col items-center" onClick={quiz}>
-                <h1>CSS</h1>
-                <img src="/assets/images/css.png" className="w-[14rem] h-[14rem]" alt="" />
+                {/* <h1>CSS</h1> */}
+                <img src="/assets/images/css.png" className="w-[20rem] h-[15rem] border-gray-100 bg-white border-[1px] rounded-lg" alt="" />
             </div>
             <div className="h-52 cursor-pointer flex flex-col items-center" onClick={quiz}>
-                <h1>JS</h1>
-                <img src="/assets/images/js.png" className="w-[14rem] h-[14rem]" alt="" />
+                {/* <h1>JS</h1> */}
+                <img src="/assets/images/js.png" className="w-[20rem] h-[15rem] border-gray-100 bg-white border-[1px] rounded-lg" alt="" />
             </div>
             </div>
         </div>

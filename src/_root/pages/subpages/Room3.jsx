@@ -4,10 +4,10 @@ const Room3 = () => {
         <h5 className="pt-10">CSS Room</h5>
         <div>
             <div>
-                <form action="" method="post" className="flex flex-col relative">
+                <form action="" method="post" className="relative w-72 xsm:w-full max-w-sm sm:max-w-md md:max-w-lg">
                     <label htmlFor="question" className="absolute top-5 left-7">Ask Question</label>
-                    <textarea name="ask" id="question" className="absolute left-7 right-24 md:right-40 lg:right-80 xl:right-96 top-12 ps-4 pt-3 bg-[#F8FAFC] border-2 border-indigo-200" rows={7}></textarea>
-                    <button type="submit" className="absolute top-56 right-24 md:right-40 lg:right-80 xl:right-96">Ask</button>
+                    <textarea name="ask" id="question" className="mt-12 ms-7 w-full ps-4 pt-3 bg-[#F8FAFC] border-[1px] border-[#000047]" rows={7}></textarea>
+                    <button type="submit" className="absolute top-56 -right-7">Ask</button>
                 </form>
             </div>
             {/* Answer is hidden */}
@@ -16,7 +16,7 @@ const Room3 = () => {
                 <h5 className="absolute top-5 left-7">Answer</h5>
                 <p className="absolute left-7 right-24 md:right-40 lg:right-80 xl:right-96 top-12 ps-4 pt-3 bg-slate-400 h-28">HTML is</p>
             </div>
-            <div className="pt-80 h-screen relative">
+            <div className="pt-40 h-screen relative">
                 <h5 className="ps-7">Recently asked questions</h5>
                 <div className="absolute left-7 right-24 lg:right-64 xl:right-80 mt-3 bg-[#000047] text-white">
                     <div className="h-20 border-s-2 border-gray-400 ms-8">
