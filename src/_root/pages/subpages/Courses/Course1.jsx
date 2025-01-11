@@ -1,65 +1,166 @@
-import { useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 const Course1 = () => {
-  const [isVisible, setIsVisible] = useState(1);
-  const handleVisibilty = (listNumber) => {
-    setIsVisible(listNumber);
-  }
+    const [isVisible, setIsVisible] = useState(false);
+    const [fullName, setFullName] = useState('');
+    const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [data, setData] = useState([]);
+    const navigate = useNavigate();
+    const userID = localStorage.getItem('userID');
+
+    const changeProfile = () => {
+        setIsVisible(!isVisible);
+        const profile = document.querySelector('.profile');
+        const deleteAcc = document.querySelector('.delete-account');
+        profile.style.pointerEvents = "none";
+        profile.style.filter = "blur(3px)"
+        deleteAcc.style.pointerEvents = "none";
+        deleteAcc.style.filter = "blur(3px)";
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const API_URL = "http://localhost/Skill-nova-BackEnd/index.php";
+    
+        const requestData = {
+            action: 'changeProfile',
+            fullName,
+            userName,
+            email,
+            password,
+            userID
+        };
+    
+        console.log('Sending request:', requestData);
+    
+        try {
+            const response = await axios.post(`${API_URL}`, requestData);
+            console.log('Raw response:', response);
+    
+            const data = response.data;
+            console.log('Received response:', data);
+            console.log('data.success:', data.success); 
+            console.log('data.message:', data.message);
+    
+            if (data.success) {
+                alert("Updated successfully!");
+                navigate('/')
+            } else {
+                alert(`failed: ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            // setMessage("An error occurred. Please try again.");
+            alert("An error occurred. Please try again.");
+        }
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:80/Skill-nova-BackEnd/index.php?userID=${userID}`);
+                console.log('Full setting API response:', response);
+                setData(response.data);
+
+                const data = response.data;
+                console.log('Received response:', data);
+                console.log('data.success:', data.success); 
+                console.log('data.message:', data.message);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        if (userID) {
+            fetchData();
+        }
+    }, []);
+    
+    const deleteAccount = async () => {
+        // const userID = localStorage.getItem('userID');
+        try {
+            const response = await axios.post('http://localhost:80/Skill-nova-BackEnd/index.php', {
+                action: 'deleteProfile',
+                userID,
+            });
+            console.log('Full API response:', response);
+            // setData(response.data);
+            console.log('Data fetched:', response.data);
+            alert("Deleted successfully");
+
+            navigate('/')
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
   return (
-    <div className="course-1 mt-12">
-      <h1 className="font-bold text-lg">HTML Course</h1>
-      <div className="relative mt-12 flex flex-col gap-16 lg:gap-32 lg:flex-row me-10">
-        <div className="absolute left-0 right-0 flex flex-col sm:flex-row">
-          <div className="flex gap-3 flex-grow">
-            <a href="course-details-1/#week1" className="text-blue-700">Week 1</a>
-            <p>&gt;</p>
-            <a href="" className="text-blue-700 text-nowrap">Introduction to the course</a>
-          </div>
-          <div className="flex me-8 mt-2 sm:mt-0 gap-7">
-            <div>
-              <a href="" className="flex gap-3 text-blue-700">
-                <p>&lt;</p>
-                <p>Previous</p>
-              </a>
+    <div className="settings p-10 bg-gray-100 min-h-screen">
+        <h1 className="text-3xl font-bold mb-8 text-center">Settings</h1>
+        <div className="profile p-6 bg-white shadow-md rounded-lg mb-8">
+            <h5 className="text-xl font-semibold mb-4">Profile</h5>
+            <div className="flex flex-col gap-4">
+                <div className="border-l-4 border-blue-500 p-4 bg-gray-50 rounded-md">
+                    <p className="text-lg font-medium">{data.fullName}</p>
+                    <small className="text-gray-500">Full name</small>
+                </div>
+                <div className="border-l-4 border-blue-500 p-4 bg-gray-50 rounded-md">
+                    <p className="text-lg font-medium">{data.userName}</p>
+                    <small className="text-gray-500">User name</small>
+                </div>
+                <div className="border-l-4 border-blue-500 p-4 bg-gray-50 rounded-md">
+                    <p className="text-lg font-medium">{data.email}</p>
+                    <small className="text-gray-500">Email</small>
+                </div>
             </div>
-            <div>
-              <a href="/all courses/course-2" className="flex gap-3 text-blue-700">
-                <p>Next</p>
-                <p>&gt;</p>
-              </a>
-            </div>
-          </div>
+            <button className="mt-6 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300" onClick={changeProfile}>Change Profile</button>
         </div>
-        <div className="relative mt-16 sm:mt-10 mb-4 w-[100%]">
-          {/* <iframe className="w-[100%] h-full" src="https://www.youtube.com/watch?v=AkdVOhYh6fs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-          <video className="w-[100%]" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">Introduction to the course</video>
-        </div>
-      </div>
-      <div className="flex flex-col gap-5">
         <div>
-          <h1 className="text-2xl font-medium">Introduction to the course</h1>
+            {isVisible && (
+                <div className="form-container flex flex-col gap-5 bg-white text-black fixed left-1/2 transform -translate-x-1/2 top-32 p-8 shadow-lg rounded-lg w-11/12 md:w-1/2 lg:w-1/3">
+                    <h1 className="text-2xl font-bold mb-4">Change Profile</h1>
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-1">
+                            <label htmlFor="fName" className="font-medium">Full Name</label>
+                            <input type="text" name="fullName" id="fName" className="p-2 border rounded-md"
+                            value={fullName} onChange={(e) => setFullName(e.target.value)}/>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <label htmlFor="uName" className="font-medium">User Name</label>
+                            <input type="text" name="userName" id="uName" className="p-2 border rounded-md"
+                            value={userName} onChange={(e) => setUserName(e.target.value)}/>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <label htmlFor="email" className="font-medium">Email</label>
+                            <input type="email" name="email" id="email" className="p-2 border rounded-md"
+                            value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <label htmlFor="password" className="font-medium">Password</label>
+                            <input type="password" name="password" id="password" className="p-2 border rounded-md"
+                            value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        </div>
+                        <button type="submit" className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300">Save</button>
+                    </form>
+                </div>
+            )}
         </div>
-        <div className="mb-40">
-          <ul className="flex gap-8">
-            <li className="text-lg font-medium cursor-pointer download" onClick={() => handleVisibilty(1)}>Downloads</li>
-            <li className="text-lg font-medium cursor-pointer question" onClick={() => handleVisibilty(2)}>Ask Questions</li>
-          </ul>
-          <hr className="border-gray-400 mt-2"/>
-          {isVisible === 1 && (
-            <div className="flex flex-col mt-1 gap-5 text-blue-900">
-              <a href="" download className="hover:underline">Lecture video(240 p) mp4</a>
-              <a href="" download className="hover:underline">Lecture video(360 p) mp4</a>
-              <a href="" download className="hover:underline">Lecture video(720 p) mp4</a>
+        <div className="delete-account p-6 bg-white shadow-md rounded-lg">
+            <h5 className="text-xl font-semibold mb-4">Delete Account</h5>
+            <div className="mb-6">
+                <p className="text-gray-700">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus
+                    ullam velit eos saepe ut molestiae alias reprehenderit
+                    ipsam repudiandae omnis, atque molestias voluptate quae, officiis,
+                </p>
+                <button onClick={deleteAccount} className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300">
+                    Delete Account
+                </button>
             </div>
-          )}
-          {isVisible === 2 && (
-            <div className="mt-2">
-              <h1>Go to <a href="/rooms/room1" className="text-blue-900 hover:underline">rooms</a> page to ask your questions</h1>
-            </div>
-          )}
         </div>
-      </div>
     </div>
   )
 }

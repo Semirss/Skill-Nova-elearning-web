@@ -41,29 +41,29 @@ const SignInForm = () => {
     }
     return (
         <div className="auth-form bg-white border-[.2px] border-primary fixed left-12 right-12 xl:left-[24rem] 
-        xl:right-96 top-32 justify-center items-center h-[25rem] rounded-lg">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5 items-center text-blue-950">
-                <h1>Log In</h1>
-                <div className="flex flex-col items-center gap-2">
-                  <label htmlFor="uName" className="-ms-28">User Name</label>
-                  <input type="text"id="uName" value={userName} onChange={(e) => setUserName(e.target.value)} 
-                  className="w-[200px] text-black"/>
+        xl:right-96 top-32 flex justify-center items-center h-[30rem] rounded-lg shadow-lg">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5 items-center text-blue-950 w-full max-w-sm p-6">
+                <h1 className="text-2xl font-bold mb-4">Log In</h1>
+                <div className="flex flex-col items-start w-full mb-4">
+                    <label htmlFor="uName" className="mb-1">User Name</label>
+                    <input type="text" id="uName" value={userName} onChange={(e) => setUserName(e.target.value)} 
+                    className="w-full p-2 border border-gray-300 rounded"/>
                 </div>
-                <div className="flex flex-col items-center gap-2">
-                  <label htmlFor="password" className="-ms-32">Password</label>
-                  <input type="text"id="password" value={password} onChange={(e) => setPassword(e.target.value)}
-                  className="w-[200px] text-black"/>
+                <div className="flex flex-col items-start w-full mb-4">
+                    <label htmlFor="password" className="mb-1">Password</label>
+                    <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}
+                    className="w-full p-2 border border-gray-300 rounded"/>
                 </div>
-                <button type="submit" className="border-[1px] w-[80px]">
-                    {/* <a href="/dashboard">Login</a> */}
+                <button type="submit" 
+                className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200">
                     Login
                 </button>
-                <p className="form-link">Don&apos;t have an account?&nbsp;
-                    <a href="/sign-up" className="text-blue-700">Register here</a>
+                <p className="form-link mt-4">
+                    Don&apos;t have an account?&nbsp;
+                    <a href="/sign-up" className="text-blue-700 hover:underline">Register here</a>
                 </p>
-                {message && <p>{message}</p>}
+                {message && <p className="mt-4 text-red-500">{message}</p>}
             </form>
-            {/* {message && <p>message</p>} */}
         </div>
     )
 }

@@ -81,59 +81,50 @@ const Room = () => {
     }
     return (
         <div className="first-room mt-14 md:mt-0">
-            <h5 className="pt-10">HTML Room</h5>
-            <div>
+            <h5 className="pt-10 text-2xl font-semibold text-center text-blue-900">HTML Room</h5>
+            <div className="mt-8 max-w-4xl">
                 {!questionID ? (
-                <div>
-                    <form onSubmit={handleSubmit} className="relative w-72 xsm:w-full max-w-sm sm:max-w-md md:max-w-lg">
-                        <label htmlFor="question" className="absolute top-5 left-7">Ask Question</label>
-                        <textarea name="ask" id="question" className="mt-12 ms-7 w-full ps-4 pt-3 bg-[#F8FAFC] border-[1px] border-[#000047]" rows={7}
-                        value={question} onChange={(e) => setQuestion(e.target.value)}></textarea>
-                        <button type="submit" className="ms-[20rem] md:ms-[30rem]">Ask</button>
+                <div className="flex justify-center">
+                    <form onSubmit={handleSubmit} className="relative w-full max-w-lg p-6 bg-white shadow-md rounded-lg">
+                    <label htmlFor="question" className="block text-lg font-medium text-gray-700 mb-2">Ask Question</label>
+                    <textarea
+                        name="ask"
+                        id="question"
+                        className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        rows={5}
+                        value={question}
+                        onChange={(e) => setQuestion(e.target.value)}
+                    ></textarea>
+                    <button
+                        type="submit"
+                        className="mt-4 w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                        Ask
+                    </button>
                     </form>
                 </div>
-                ):(
-                    // <div className="relative">
-                    //     <h5 className="absolute top-5 left-7">Answer</h5>
-                    //     data.answer ? (
-                    //         <p className="absolute left-7 right-24 md:right-40 lg:right-80 xl:right-96 top-12 ps-4 pt-3 border-[1px] border-primary h-28">
-                    //             {data.answer}
-                    //         </p> ):(
-                    //         <p className="absolute left-7 right-24 md:right-40 lg:right-80 xl:right-96 top-12 ps-4 pt-3 border-[1px] border-primary h-28">
-                    //             Loading ...
-                    //         </p>)
-                    // </div>
-                    <div className="relative mb-36">
-                        <h5 className="absolute top-5 left-7">Answer</h5>
-                        {/* {data.answer ? (
-                            <p className="absolute left-7 right-24 md:right-40 lg:right-80 xl:right-96 top-12 ps-4 pt-3 border-[1px] border-primary h-28">
-                                {data.answer}
-                            </p>
-                        ) : (
-                            <p className="absolute left-7 right-24 md:right-40 lg:right-80 xl:right-96 top-12 ps-4 pt-3 border-[1px] border-primary h-28">
-                                Loading...
-                            </p>
-                        )} */}
-                        {data.map((item, index) => (
-                            <p key={index} className="absolute left-7 right-24 md:right-40 lg:right-80 xl:right-96 top-12 ps-4 pt-3 border-[1px] border-primary h-28">
-                                {item.answer ? item.answer : "Loading..."}
-                            </p>
-                        ))}
+                ) : (
+                <div className="relative mb-36">
+                    <h5 className="text-lg font-medium text-gray-700 mb-4">Answer</h5>
+                    {data.map((item, index) => (
+                    <div key={index} className="p-4 mb-4 bg-gray-100 border border-gray-300 rounded-lg">
+                        <p className="text-gray-800">{item.answer ? item.answer : "Loading..."}</p>
                     </div>
-                    // data.answer ? (<h1>{data.answer}</h1>) : (<p>Loading ....</p>)
+                    ))}
+                </div>
                 )}
                 <div className="pt-28 h-screen relative">
-                    <h5 className="ps-7">Recently asked questions</h5>
-                    <div className="absolute left-7 right-24 lg:right-64 xl:right-80 mt-3 bg-[#000047] text-white">
-                        {allData.map((item, index) => (
-                            item.answer && (
-                                <div key={index} className="h-20 border-s-2 border-gray-400 ms-8 mt-5 mb-5">
-                                    <p className="ps-4 pt-2">{item.question}</p>
-                                    <p className="ps-2 pt-2">{item.answer}</p>
-                                </div>
-                            )
-                        ))}
-                    </div>
+                <h5 className="text-lg font-medium text-gray-700 mb-4">Recently asked questions</h5>
+                <div className="space-y-4 max-w-4xl mx-auto">
+                    {allData.map((item, index) => (
+                    item.answer && (
+                        <div key={index} className="p-4 bg-white shadow-md rounded-lg">
+                        <p className="text-gray-800 font-semibold">{item.question}</p>
+                        <p className="text-gray-600 mt-2">{item.answer}</p>
+                        </div>
+                    )
+                    ))}
+                </div>
                 </div>
             </div>
         </div>

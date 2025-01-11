@@ -29,30 +29,32 @@ const AdminRoom = () => {
         navigate(`/admin-page/all-rooms/room/answer?questionID=${questionID}`);
     }
     return (
-        <div className="relative">
-            <div className="bg-primary h-14 w-screen text-secondary ps-12 pt-4">
-                <h1 className="">Skill Nova</h1>
-            </div>
-            <div className="mt-10 ms-20 gap-24">
-                {/* <h1>All ROOM</h1> */}
-                <div className="relative pt-9">
-                    <ul>
-                        {data.map((item, index) => (
-                            <li key={index} className="relative w-96 bg-white border-[1.9px] border-gray-300 rounded-lg h-52 ps-5 pt-5">
-                                <section className="flex flex-col gap-7 w-[100%]">
-                                    <div className="flex flex-col gap-1 max-w-[100%]">
-                                        <h1 className="font-bold">Question</h1>
-                                        <p>{item.question}</p>
-                                    </div>
-                                    <div className="mb-10 flex text-white rounded-xl ms-0 me-52">
-                                        <button className="text-center h-8" onClick={() => setAnswer(item.questionID)}>Set Answer</button>
-                                    </div>
-                                </section>
-                            </li>
-                        ))}
-                    </ul>
+        <div className="relative min-h-screen bg-gray-100">
+          <header className="bg-primary h-14 w-full text-secondary px-12 py-4 shadow-md">
+            <h1 className="text-2xl font-bold">Skill Nova</h1>
+          </header>
+          <main className="mt-10 px-20">
+            <div className="grid gap-8">
+              {data.map((item, index) => (
+                <div key={index} className="bg-white border border-gray-300 rounded-lg p-5 shadow-sm">
+                  <section className="flex flex-col gap-4">
+                    <div>
+                      <h2 className="text-xl font-semibold">Question</h2>
+                      <p className="text-gray-700">{item.question}</p>
+                    </div>
+                    <div className="flex justify-end">
+                      <button 
+                        className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition"
+                        onClick={() => setAnswer(item.questionID)}
+                      >
+                        Set Answer
+                      </button>
+                    </div>
+                  </section>
                 </div>
+              ))}
             </div>
+          </main>
         </div>
     )
 }

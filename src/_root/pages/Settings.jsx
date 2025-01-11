@@ -16,10 +16,14 @@ const Settings = () => {
         setIsVisible(!isVisible);
         const profile = document.querySelector('.profile');
         const deleteAcc = document.querySelector('.delete-account');
+        const settingsH1 = document.querySelector('.settings-h1');
+
         profile.style.pointerEvents = "none";
         profile.style.filter = "blur(3px)"
         deleteAcc.style.pointerEvents = "none";
         deleteAcc.style.filter = "blur(3px)";
+        settingsH1.style.filter = "blur(3px)";
+        settingsH1.style.pointerEvents = "none";
     }
 
     const handleSubmit = async (event) => {
@@ -98,72 +102,72 @@ const Settings = () => {
         }
     };
 
-  return (
-    <div className="settings">
-        <h1 className="mt-10">Settings</h1>
-        <div className="profile pt-10 ps-12">
-            <h5 className="">Profile</h5>
-            <div className="pt-5 ps-7 flex flex-col gap-5">
-                <div className="border-s-4 border-[#000047]">
-                    <p className="ps-2">{data.fullName}</p>
-                    <small className="text-xs ps-2">Full name</small>
+    return (
+        <div className="settings p-10 bg-gray-100 min-h-screen">
+            <h1 className="settings-h1 text-3xl font-bold mb-8 text-center">Settings</h1>
+            <div className="profile p-6 bg-white shadow-md rounded-lg mb-8">
+                <h5 className="text-xl font-semibold mb-4">Profile</h5>
+                <div className="flex flex-col gap-4">
+                    <div className="border-l-4 border-blue-500 p-4 bg-gray-50 rounded-md">
+                        <p className="text-lg font-medium">{data.fullName}</p>
+                        <small className="text-gray-500">Full name</small>
+                    </div>
+                    <div className="border-l-4 border-blue-500 p-4 bg-gray-50 rounded-md">
+                        <p className="text-lg font-medium">{data.userName}</p>
+                        <small className="text-gray-500">User name</small>
+                    </div>
+                    <div className="border-l-4 border-blue-500 p-4 bg-gray-50 rounded-md">
+                        <p className="text-lg font-medium">{data.email}</p>
+                        <small className="text-gray-500">Email</small>
+                    </div>
                 </div>
-                <div className="border-s-4 border-[#000047]">
-                    <p className="ps-2">{data.userName}</p>
-                    <small className="text-xs ps-2">User name</small>
-                </div>
-                <div className="border-s-4 border-[#000047]">
-                    <p className="ps-2">{data.email}</p>
-                    <small className="text-xs ps-2">Email</small>
+                <button className="mt-6 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300" onClick={changeProfile}>Change Profile</button>
+            </div>
+            <div>
+                {isVisible && (
+                    <div className="z-20 form-container flex flex-col gap-5 bg-white text-black fixed top-32 p-8 shadow-lg rounded-lg w-11/12 md:w-1/2 lg:w-1/3
+                    mx-auto left-12 right-12 md:left-[22rem] md:right-20 lg:left-[20rem] lg:right-36 xl:left-[30rem] xl:right-64">
+                        <h1 className="text-2xl font-bold mb-4">Change Profile</h1>
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                            <div className="flex flex-col gap-1">
+                                <label htmlFor="fName" className="font-medium">Full Name</label>
+                                <input type="text" name="fullName" id="fName" className="p-2 border rounded-md"
+                                value={fullName} onChange={(e) => setFullName(e.target.value)}/>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <label htmlFor="uName" className="font-medium">User Name</label>
+                                <input type="text" name="userName" id="uName" className="p-2 border rounded-md"
+                                value={userName} onChange={(e) => setUserName(e.target.value)}/>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <label htmlFor="email" className="font-medium">Email</label>
+                                <input type="email" name="email" id="email" className="p-2 border rounded-md"
+                                value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <label htmlFor="password" className="font-medium">Password</label>
+                                <input type="password" name="password" id="password" className="p-2 border rounded-md"
+                                value={password} onChange={(e) => setPassword(e.target.value)}/>
+                            </div>
+                            <button type="submit" className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300">Save</button>
+                        </form>
+                    </div>
+                )}
+            </div>
+            <div className="delete-account p-6 bg-white shadow-md rounded-lg">
+                <h5 className="text-xl font-semibold mb-4">Delete Account</h5>
+                <div className="mb-6">
+                    <p className="text-gray-700">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus
+                        ullam velit eos saepe ut molestiae alias reprehenderit
+                        ipsam repudiandae omnis, atque molestias voluptate quae, officiis,
+                    </p>
+                    <button onClick={deleteAccount} className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300">
+                        Delete Account
+                    </button>
                 </div>
             </div>
-            <button className="text-nowrap ms-12" onClick={changeProfile}>Change Profile</button>
         </div>
-        <div>
-            {isVisible && (
-                <div className="form-container flex flex-col gap-5 bg-primary text-white fixed left-12 right-12 md:left-[22rem] md:right-20 lg:left-[25rem] lg:right-36 xl:left-[30rem] 
-                xl:right-64 top-32 justify-center items-center h-96">
-                    <h1>Change Profile</h1>
-                    <form onSubmit={handleSubmit} action="" className="flex flex-col gap-4">
-                        <div className="flex flex-col gap-0.5">
-                            <label htmlFor="fName" className="ps-2">Full Name</label>
-                            <input type="text" name="fullName" id="fName" className="text-black"
-                            value={fullName} onChange={(e) => setFullName(e.target.value)}/>
-                        </div>
-                        <div className="flex flex-col gap-0.5">
-                            <label htmlFor="uName" className="ps-2">User Name</label>
-                            <input type="text" name="userName" id="uName" className="text-black"
-                            value={userName} onChange={(e) => setUserName(e.target.value)}/>
-                        </div>
-                        <div className="flex flex-col gap-0.5">
-                            <label htmlFor="email" className="ps-2">Email</label>
-                            <input type="email" name="email" id="email" className="text-black"
-                            value={email} onChange={(e) => setEmail(e.target.value)}/>
-                        </div>
-                        <div className="flex flex-col gap-0.5">
-                            <label htmlFor="password" className="ps-2">Password</label>
-                            <input type="password" name="password" id="password" className="text-black"
-                            value={password} onChange={(e) => setPassword(e.target.value)}/>
-                        </div>
-                        <button type="submit" className="w-20 mt-2 ms-14 border-[1px]">Save</button>
-                    </form>
-                </div>
-            )}
-        </div>
-        <div className="delete-account pt-28 ps-12 h-96">
-            <h5>Delete Account</h5>
-            <div className="ps-7 pt-5">
-                <p className="w-3/4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus
-                    ullam velit eos saepe ut molestiae alias reprehenderit
-                    ipsam repudiandae omnis, atque molestias voluptate quae, officiis,
-                </p>
-                <button onClick={deleteAccount} className="ms-0 mb-24">
-                    <a href="/">Delete Account</a>
-                </button>
-            </div>
-        </div>
-    </div>
-  )
+    )
 }
 
 export default Settings

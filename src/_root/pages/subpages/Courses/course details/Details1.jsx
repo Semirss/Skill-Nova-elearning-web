@@ -92,10 +92,10 @@ const Details1 = () => {
               <p className="ms-5">Admin</p>
             </div>
             <div>
-              <button onClick={enrollStudent}>Enroll</button>
+              <button className="px-4 py-2 bg-blue-500 text-white rounded" onClick={enrollStudent}>Enroll</button>
             </div>
           </div>
-          <div className="relative flex flex-col">
+          <div className="relative flex flex-col mb-10">
             <h1 className="font-bold">Overview</h1>
             <div className="bg-white border-[1.9px] border-gray-300 rounded-lg flex mt-5 w-[100%]">
               <div className="flex flex-col gap-1 ms-0 me-28">
@@ -133,7 +133,7 @@ const Details1 = () => {
         xl:right-64 top-52 h-96">
           <div className="pt-16">
             <h1 className="font-bold text-xl">{message}</h1>
-            <button>
+            <button className="px-4 py-2 bg-blue-500 text-white rounded">
               <a href="/all courses/course-3">Go to course</a>
             </button>
           </div>

@@ -35,25 +35,30 @@ const Answer = () => {
             alert("An error occurred. Please try again.");
         }
     }
-  return (
-    <div className="relative">
-        <div className="bg-primary h-14 w-screen text-secondary ps-12 pt-4">
-            <h1 className="">Skill Nova</h1>
-        </div>
-        <div className="mt-10 ms-20">
-            <h1>Set Answer</h1>
-            <div className="relative pt-9">
-                <div className="absolute w-72 xsm:w-full max-w-sm sm:max-w-md md:max-w-lg">
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-1 text-blue-950">
-                        <textarea name="answer" id="answer" className="w-full ps-4 pt-3 bg-[#F8FAFC] border-[1px] border-[#000047]" rows={7}
-                        value={answer} onChange={(e) => setAnswer(e.target.value)}></textarea>
-                        <button type="submit" className="border-[1px] ms-0 me-96">Respond</button>
-                    </form>
+    return (
+        <div className="relative min-h-screen">
+            <header className="bg-primary h-14 w-full text-secondary px-12 py-4 shadow-md">
+                <h1 className="text-2xl font-bold">Skill Nova</h1>
+            </header>
+            <main className="mt-12 px-20">
+                <h1 className="text-4xl font-semibold mb-8 text-center text-primary">Set Answer</h1>
+                <div className="relative pt-12 flex justify-center">
+                    <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-lg">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-6 text-blue-950">
+                            <textarea name="answer" id="answer" rows={7} value={answer} onChange={(e) => setAnswer(e.target.value)}
+                            className="w-full p-4 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" 
+                            placeholder="Type your answer here..."
+                            ></textarea>
+                            <button type="submit" 
+                            className="self-end px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-75">
+                                Respond
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </main>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Answer

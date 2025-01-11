@@ -45,14 +45,14 @@ const AllCourses = () => {
           <ul>
             {data.map((item, index) => (
               index < 3 && (
-                <li key={index} className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-                  <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
+                <li key={index} className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg mb-4">
+                  <section className="inline-flex flex-col gap-7 h-[100%] w-[100%] p-4">
                     <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                      <img src={item.image} alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
+                      <img src={item.image} alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%] object-cover"/>
                     </div>
                     <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                      <h1 className="font-bold">{item.title}</h1>
-                      <small>{item.duration}</small>
+                      <h1 className="font-bold text-lg">{item.title}</h1>
+                      <small className="text-gray-500">{item.duration}</small>
                     </div>
                     <div className="mb-10 flex bg-primary text-white ms-9 me-9 rounded-xl">
                       <a href={`${item.details}?courseID=${item.courseID}`} className="w-[100%] text-center h-8 pt-1">View Details</a>
@@ -61,66 +61,22 @@ const AllCourses = () => {
                 </li>
               )
             ))}
-            {/* <p className="show-all absolute right-0 pt-3 cursor-pointer" onClick={showCourses}>Show all</p> */}
-            {/* <li className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-              <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
-                <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                  <img src="/assets/images/html.png" alt="</li>" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
-                </div>
-                <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                  <h1 className="font-bold">HTML</h1>
-                  <small>30 Weeks</small>
-                </div>
-                <div className="mb-10 flex bg-primary text-white ms-9 me-9 rounded-xl">
-                  <a href="/all courses/course-details-1" className="w-[100%] text-center h-8 pt-1">View Details</a>
-                </div>
-              </section>
-            </li> */}
-            {/* <li className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-              <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
-                <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                  <img src="/assets/images/html.png" alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
-                </div>
-                <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                  <h1 className="font-bold">CSS</h1>
-                  <small>30 Weeks</small>
-                </div>
-                <div className="mb-10 </div>flex bg-primary text-white ms-9 me-9 rounded-xl">
-   </ul>               <a href="/all courses/course-details-2" className="w-[100%] text-center h-8 pt-1">View Details</a>
-                </div>
-              </section>
-       </li>     </li> */}
-            {/* <li className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-              <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
-                <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                  <img src="/assets/images/js.png" alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
-                </div>
-                <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                  <h1 className="font-bold">JS</h1>
-                  <small>30 Weeks</small>
-                </div>
-                <div className="mb-10 flex bg-primary text-white ms-9 me-9 rounded-xl">
-                  <a href="/all courses/course-details-3" className="w-[100%] text-center h-8 pt-1">View Details</a>
-                </div>
-              </section>
-              <p className="show-all absolute right-0 pt-3 cursor-pointer" onClick={showCourses}>Show all</p>
-            </li> */}
           </ul>
-          <p className="show-all pt-3 absolute right-24 cursor-pointer" onClick={showCourses}>Show all</p>
+          <p className="show-all pt-3 absolute right-24 cursor-pointer text-blue-500" onClick={showCourses}>Show all</p>
         </div>
         {show && (
           <div className="courses-2 relative all-courses pt-16">
             <ul>
               {data.map((item, index) => (
-                index > 2 && (
-                  <li key={index} className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-                    <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
+                index >= 3 && (
+                  <li key={index} className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg mb-4">
+                    <section className="inline-flex flex-col gap-7 h-[100%] w-[100%] p-4">
                       <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                        <img src={item.image} alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
+                        <img src={item.image} alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%] object-cover"/>
                       </div>
                       <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                        <h1 className="font-bold">{item.title}</h1>
-                        <small>{item.duration}</small>
+                        <h1 className="font-bold text-lg">{item.title}</h1>
+                        <small className="text-gray-500">{item.duration}</small>
                       </div>
                       <div className="mb-10 flex bg-primary text-white ms-9 me-9 rounded-xl">
                         <a href={`${item.details}?courseID=${item.courseID}`} className="w-[100%] text-center h-8 pt-1">View Details</a>
@@ -129,107 +85,28 @@ const AllCourses = () => {
                   </li>
                 )
               ))}
-              {/* <li className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-                <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
-                  <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                    <img src="/assets/images/html.png" alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
-                  </div>
-                  <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                    <h1 className="font-bold">HTML</h1>
-                    <small>30 Weeks</small>
-                  </div>
-                  <div className="mb-10 flex bg-primary text-white ms-9 me-9 rounded-xl">
-                    <a href="" className="w-[100%] text-center h-8 pt-1">View Details</a>
-                  </div>
-                </section>
-              </li> */}
-              {/* <li className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-                <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
-                  <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                    <img src="/assets/images/html.png" alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
-                  </div>
-                  <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                    <h1 className="font-bold">CSS</h1>
-                    <small>30 Weeks</small>
-                  </div>
-                  <div className="mb-10 flex bg-primary text-white ms-9 me-9 rounded-xl">
-                    <a href="" className="w-[100%] text-center h-8 pt-1">View Details</a>
-                  </div>
-                </section>
-              </li> */}
-              {/* <li className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-                <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
-                  <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                    <img src="/assets/images/js.png" alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
-                  </div>
-                  <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                    <h1 className="font-bold">JS</h1>
-                    <small>30 Weeks</small>
-                  </div>
-                  <div className="mb-10 flex bg-primary text-white ms-9 me-9 rounded-xl">
-                    <a href="" className="w-[100%] text-center h-8 pt-1">View Details</a>
-                  </div>
-                </section>
-                <p className="absolute right-0 pt-3 cursor-pointer" onClick={hideCourses}>Show less</p>
-              </li> */}
             </ul>
-            <p className="absolute right-24 pt-3 cursor-pointer" onClick={hideCourses}>Show less</p>
+            <p className="absolute right-24 pt-3 cursor-pointer text-blue-500" onClick={hideCourses}>Show less</p>
           </div>
         )}
       </div>
       <div className="featured relative mt-12">
-        <p className="">Featured</p>
+        <p className="text-xl font-semibold">Featured</p>
         <div className="relative">
           <ul className="mb-14 flex flex-col gap-5">
             {data.map((item, index) => (
-              <li key={index} className="relative w-[60%] max-h-[100%] bg-white border-[1.9px] border-gray-300 rounded-lg mt-5">
+              <li key={index} className="relative w-[60%] max-h-[100%] bg-white border-[1.9px] border-gray-300 rounded-lg mt-5 p-4">
                 <section className="inline-flex w-[100%] gap-2 ms-3">
                   <div className="max-w-[100%] relative mx-0 my-auto">
-                    <img src={item.image} alt="html" className="w-[100%] h-12 max-h-[10%]"/>
+                    <img src={item.image} alt="html" className="w-[100%] h-12 max-h-[10%] object-cover"/>
                   </div>
                   <div className="flex flex-col">
-                    <a href="/all courses/course-details-1">{item.title}</a>
-                    <p>{item.description}</p>
+                    <a href="/all courses/course-details-1" className="font-bold text-lg">{item.title}</a>
+                    <p className="text-gray-500">{item.description}</p>
                   </div>
                 </section>
               </li>
             ))}
-            {/* <li className="relative w-[60%] max-h-[100%] bg-white border-[1.9px] border-gray-300 rounded-lg mt-5">
-              <section className="inline-flex w-[100%] gap-2 ms-3">
-                <div className="max-w-[100%] relative mx-0 my-auto">
-                  <img src="/assets/images/html.png" alt="html" className="w-[100%] h-12 max-h-[10%]"/>
-                </div>
-                <div className="flex flex-col">
-                  <a href="/all courses/course-details-1">HTML</a>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-              </section>
-            </li> */}
-            {/* <li className="relative w-[60%] max-h-[100%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-              <section className="inline-flex w-[100%] gap-2 ms-3">
-                <div className="max-w-[100%] relative mx-0 my-auto">
-                  <img src="/assets/images/html.png" alt="html" className="w-[100%] h-12 max-h-[10%]"/>
-                </div>
-                <div className="flex flex-col">
-                  <a href="/all courses/course-details-2">CSS</a>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-              </section>
-            </li> */}
-            {/* <li className="relative w-[60%] max-h-[100%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-              <section className="inline-flex w-[100%] gap-2 ms-3">
-                <div className="max-w-[100%] relative mx-0 my-auto">
-                  <img src="/assets/images/html.png" alt="html" className="w-[100%] h-12 max-h-[10%]"/>
-                </div>
-                <div className="flex flex-col">
-                  <a href="/all courses/course-details-3">JS</a>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-              </section>
-            </li> */}
-          </ul>
-          <ul>
-            
           </ul>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
-import Topbar from "../components/TopBar"
 import LeftSidebar from "../components/LeftSideBar"
 import ToggleBar from "../components/ToggleBar"
+import Topbar from "../components/Topbar"
 
 const PagesLayout = () => {
     return (

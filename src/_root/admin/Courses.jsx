@@ -116,102 +116,102 @@ const Courses = () => {
         }
     }
     return (
-        <div className="admin absolute top-0">
-            <div className="bg-primary h-14 w-screen text-secondary ps-12 pt-4">
-                <h1 className="">Skill Nova</h1>
+        <div className="admin absolute top-0 w-full min-h-screen bg-gray-100">
+          <header className="bg-primary h-14 w-full text-secondary flex items-center px-12">
+            <h1 className="text-2xl font-bold">Skill Nova</h1>
+          </header>
+          <main className="course ms-24 me-10 mt-12 flex flex-col gap-12">
+            <section className="relative">
+              <h1 className="text-xl font-semibold mb-4">All Courses</h1>
+              <div className="relative all-courses pt-9">
+                <ul>
+                  {data.map((item, index) => (
+                    index < 3 && (
+                      <li key={index} className="relative w-[80%] bg-white border border-gray-300 rounded-lg shadow-md p-6">
+                        <section className="flex flex-col gap-4">
+                          <div className="flex justify-center">
+                            <img src={item.image} alt="" className="w-3/5 h-auto object-cover rounded-md"/>
+                          </div>
+                          <div className="flex flex-col gap-1">
+                            <h1 className="font-bold text-lg">{item.title}</h1>
+                            <small className="text-gray-500">{item.duration}</small>
+                          </div>
+                          <div className="flex justify-center">
+                            <button onClick={() => deleteCourse(item.courseID)} className="bg-red-500 text-white py-2 px-4 rounded-lg">Delete Course</button>
+                          </div>
+                        </section>
+                      </li>
+                    )
+                  ))}
+                </ul>
+                <p className="show-all pt-3 absolute right-24 cursor-pointer text-blue-500" onClick={showCourses}>Show all</p>
+              </div>
+              {show && (
+                <div className="courses-2 relative all-courses pt-16">
+                  <ul>
+                    {data.map((item, index) => (
+                      index > 2 && (
+                        <li key={index} className="relative w-[80%] bg-white border border-gray-300 rounded-lg shadow-md p-6">
+                          <section className="flex flex-col gap-4">
+                            <div className="flex justify-center">
+                              <img src={item.image} alt="" className="w-3/5 h-auto object-cover rounded-md"/>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                              <h1 className="font-bold text-lg">{item.title}</h1>
+                              <small className="text-gray-500">{item.duration}</small>
+                            </div>
+                            <div className="flex justify-center">
+                              <button onClick={() => deleteCourse(item.courseID)} className="bg-red-500 text-white py-2 px-4 rounded-lg">Delete Course</button>
+                            </div>
+                          </section>
+                        </li>
+                      )
+                    ))}
+                  </ul>
+                  <p className="absolute right-24 pt-3 cursor-pointer text-blue-500" onClick={hideCourses}>Show less</p>
+                </div>
+              )}
+            </section>
+            <div className="w-40 h-10 mb-14 pt-1 text-center text-white rounded-xl bg-blue-600 shadow-md">
+              <button onClick={courseVisibility}>Add Course</button>
             </div>
-            <div className="course ms-12 mt-12 flex flex-col gap-24">
-                <div className="relative">
-                    <h1>All Courses</h1>
-                    <div className="relative all-courses pt-9">
-                        <ul>
-                            {data.map((item, index) => (
-                                index < 3 && (
-                                <li key={index} className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-                                    <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
-                                        <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                                            <img src={item.image} alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
-                                        </div>
-                                        <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                                            <h1 className="font-bold">{item.title}</h1>
-                                            <small>{item.duration}</small>
-                                        </div>
-                                        <div className="mb-10 flex gap-10 bg-primary text-white ms-9 me-9 rounded-xl">
-                                            <a href="#" onClick={() => deleteCourse(item.courseID)} className="w-[100%] text-center h-8 pt-1">Delete Course</a>
-                                        </div>
-                                    </section>
-                                </li>
-                                )
-                            ))}
-                        </ul>
-                        <p className="show-all pt-3 absolute right-24 cursor-pointer" onClick={showCourses}>Show all</p>
-                    </div>
-                    {show && (
-                    <div className="courses-2 relative all-courses pt-16">
-                        <ul>
-                        {data.map((item, index) => (
-                            index > 2 && (
-                            <li key={index} className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg">
-                                <section className="inline-flex flex-col gap-7 h-[100%] w-[100%]">
-                                <div className="max-w-[100%] relative mx-0 my-auto flex justify-center">
-                                    <img src={item.image} alt="" className="w-[60%] h-[100%] max-w-[60%] max-h-[100%]"/>
-                                </div>
-                                <div className="flex flex-col gap-1 max-w-[100%] ms-9">
-                                    <h1 className="font-bold">{item.title}</h1>
-                                    <small>{item.duration}</small>
-                                </div>
-                                <div className="mb-10 flex gap-10 bg-primary text-white ms-9 me-9 rounded-xl">
-                                    <a href="#" onClick={() => deleteCourse(item.courseID)} className="w-[100%] text-center h-8 pt-1">Delete Course</a>
-                                </div>
-                                </section>
-                            </li>
-                            )
-                        ))}
-                        </ul>
-                        <p className="absolute right-24 pt-3 cursor-pointer" onClick={hideCourses}>Show less</p>
-                    </div>
-                    )}
+          </main>
+          {isVisibleCourses && (
+            <div className="flex flex-col gap-5 bg-primary text-white fixed left-12 right-12 md:left-[7rem] md:right-20 lg:left-[10rem]
+            lg:right-36 xl:left-[15rem] xl:right-64 top-16 justify-center items-center h-[36rem] p-6 rounded-lg shadow-lg">
+              <h1 className="text-3xl font-bold mb-4">Add Courses</h1>
+              <form onSubmit={AddCourse} className="flex flex-col gap-4 w-full max-w-md">
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="title" className="ps-2">Course Title</label>
+                  <input type="text" name="title" id="title" className="text-black p-2 rounded-md"
+                  value={title} onChange={(e) => setTitle(e.target.value)}/>
                 </div>
-                <div className='w-40 h-8 mb-14 pt-1 text-center text-white rounded-xl'>
-                    <button onClick={courseVisibility}>Add Course</button>
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="image" className="ps-2">Image Url</label>
+                  <input type="text" name="image" id="image" className="text-black p-2 rounded-md"
+                  value={image} onChange={(e) => setImage(e.target.value)}/>
                 </div>
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="description" className="ps-2">Course Description</label>
+                  <input type="text" name="description" id="description" className="text-black p-2 rounded-md"
+                  value={description} onChange={(e) => setDescription(e.target.value)}/>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="duration" className="ps-2">Course Duration</label>
+                  <input type="text" name="duration" id="duration" className="text-black p-2 rounded-md"
+                  value={duration} onChange={(e) => setDuration(e.target.value)}/>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="details" className="ps-2">Details Url</label>
+                  <input type="text" name="details" id="details" className="text-black p-2 rounded-md"
+                  value={details} onChange={(e) => setDetails(e.target.value)}/>
+                </div>
+                <button type="submit" className="w-20 mt-2 ms-48 border-[1px] bg-blue-500 text-white py-2 px-4 rounded-lg">Add</button>
+              </form>
             </div>
-            {isVisibleCourses && (
-                <div className="flex flex-col gap-5 bg-primary text-white fixed left-12 right-12 md:left-[7rem] md:right-20 lg:left-[10rem] lg:right-36 xl:left-[15rem] 
-                xl:right-64 top-32 justify-center items-center h-[30rem]">
-                <h1>Add Courses</h1>
-                <form onSubmit={AddCourse} className="flex flex-col gap-4">
-                    <div className="flex flex-col gap-0.5">
-                        <label htmlFor="title" className="ps-2">Course Title</label>
-                        <input type="text" name="title" id="title" className="text-black"
-                        value={title} onChange={(e) => setTitle(e.target.value)}/>
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                        <label htmlFor="image" className="ps-2">Image Url</label>
-                        <input type="text" name="image" id="image" className="text-black"
-                        value={image} onChange={(e) => setImage(e.target.value)}/>
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                        <label htmlFor="description" className="ps-2">Course Description</label>
-                        <input type="text" name="description" id="description" className="text-black"
-                        value={description} onChange={(e) => setDescription(e.target.value)}/>
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                        <label htmlFor="duration" className="ps-2">Course Duration</label>
-                        <input type="text" name="duration" id="duration" className="text-black"
-                        value={duration} onChange={(e) => setDuration(e.target.value)}/>
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                        <label htmlFor="details" className="ps-2">Details Url</label>
-                        <input type="text" name="details" id="details" className="text-black"
-                        value={details} onChange={(e) => setDetails(e.target.value)}/>
-                    </div>
-                    <button type="submit" className="w-20 mt-2 ms-20 border-[1px]">Add</button>
-                </form>
-                </div>
-            )}
+          )}
         </div>
-    );
+    )
 };
 
 export default Courses;
