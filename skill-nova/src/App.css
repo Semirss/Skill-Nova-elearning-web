@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+@layer base {
+  * {
+    @apply box-border list-none p-0 m-0;
+  }
+  html, body {
+    @apply font-sans bg-secondary h-[100%];
+  }
+  input {
+    @apply border-2 ms-2 ps-5 pe-5;
+  }
+  button {
+    @apply ms-3 mt-4 bg-[#4CAF50] ps-5 pe-5 h-10 rounded-lg;
+  }
+  img {
+    width: 22px;
+    height: 22px;
+  }
+  ul {
+    @apply flex gap-2;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
+  th, td {
+    @apply pt-4 pb-4;
+  }
+  /* td {
+    @apply ps-24 pe-24;
+  } */
+  th {
+    @apply bg-amber-300;
+  }
+}
+
+@layer utilities {
+  .layout {
+    height: 100vh;
+  }
+  .auth-form {
+    @apply text-center pt-36 h-96 w-auto text-black;
+  }
+  .input-field {
+    @apply pt-7 flex flex-col;
+  }
+  .left-sidebar {
+    @apply hidden md:block md:fixed md:w-full max-w-[270px] bg-primary min-h-screen text-white;
+  }
+  .topbar {
+    @apply hidden md:flex bg-primary md:bg-transparent h-14 fixed top-0 z-10 right-10 text-primary
+    ps-[37rem] pt-3 gap-5;
+  }
+  .dashboard, .courses, .settings, .rooms, .first-room {
+    @apply flex flex-col text-primary
+    absolute top-0 left-0 md:left-[270px] right-0 pt-20 ps-12 bottom-0;
+  }
+  .navbar-top {
+    @apply pt-16 md:ps-16 flex flex-col gap-16 items-center md:items-start;
+  }
+  .navbar-bottom {
+    @apply md:ps-16 pt-12 flex flex-col gap-10 items-center md:items-start;
+  }
+  .profile-pic {
+    @apply w-10 h-10 bg-cyan-900;
+    border-radius: 100%;
+  }
+  .toggle-bar {
+    @apply md:hidden absolute top-0 left-0 right-0 z-10;
+  }
+  .toggle-icon {
+    @apply absolute top-7 right-12 flex flex-col gap-1;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .nav-menu.active {
+    display: block;
+    @apply z-0 bg-primary text-white min-h-screen;
+  }
+}
+
+@layer components {
+
+}
