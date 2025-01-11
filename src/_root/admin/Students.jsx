@@ -1,4 +1,22 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const Students = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:80/Skill-nova-BackEnd/index.php?action=getStudents');
+                setData(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+    
+        fetchData();
+      }, []);
+
 return (
     <div className="relative">
         <div className="bg-primary h-14 w-full text-secondary ps-12 pt-4 admin fixed top-0">
@@ -11,34 +29,16 @@ return (
                         <th className="border-b-2 p-2">Full Name</th>
                         <th className="border-b-2 p-2">User Name</th>
                         <th className="border-b-2 p-2">Email</th>
-                        <th className="border-b-2 p-2">Course</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td className="border-b p-2">Student</td>
-                        <td className="border-b p-2">stud01</td>
-                        <td className="border-b p-2">stud1@gmail.com</td>
-                        <td className="border-b p-2">HTML</td>
-                    </tr>
-                    <tr>
-                        <td className="border-b p-2">Student</td>
-                        <td className="border-b p-2">stud02</td>
-                        <td className="border-b p-2">stud2@gmail.com</td>
-                        <td className="border-b p-2">CSS</td>
-                    </tr>
-                    <tr>
-                        <td className="border-b p-2">Student</td>
-                        <td className="border-b p-2">stud03</td>
-                        <td className="border-b p-2">stud3@gmail.com</td>
-                        <td className="border-b p-2">JS</td>
-                    </tr>
-                    <tr>
-                        <td className="border-b p-2">Student</td>
-                        <td className="border-b p-2">stud04</td>
-                        <td className="border-b p-2">stud4@gmail.com</td>
-                        <td className="border-b p-2">Python</td>
-                    </tr>
+                    {data.map((item, index) => (
+                        <tr key={index}>
+                            <td className="border-b p-2">{item.fullName}</td>
+                            <td className="border-b p-2">{item.userName}</td>
+                            <td className="border-b p-2">{item.email}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>

@@ -15,9 +15,7 @@ const Rooms = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get('http://localhost:80/Skill-nova-BackEnd/index.php?action=Allrooms');
-            console.log('Full API response:', response);
             setData(response.data);
-            console.log('Data fetched:', response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -26,8 +24,8 @@ const Rooms = () => {
     fetchData();
   }, []);
 
-  const viewRoom = (roomID) => {
-    navigate(`/rooms/room?answerRoomID=${roomID}`);
+  const viewRoom = (roomID, roomTitle) => {
+    navigate(`/rooms/room?answerRoomID=${roomID}&title=${roomTitle}`);
   }
   return (
     <div className="rooms flex flex-col gap-8 mt-14 md:mt-0">
@@ -49,8 +47,7 @@ const Rooms = () => {
                         <div className="ml-auto">
                           <button
                             className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-                            onClick={() => viewRoom(item.roomID)}
-                          >
+                            onClick={() => viewRoom(item.roomID, item.title)} >
                             View Room
                           </button>
                         </div>
@@ -74,8 +71,7 @@ const Rooms = () => {
                       <div className="ml-auto">
                         <button
                           className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-                          onClick={() => viewRoom(item.roomID)}
-                        >
+                          onClick={() => viewRoom(item.roomID)}>
                           View Room
                         </button>
                       </div>

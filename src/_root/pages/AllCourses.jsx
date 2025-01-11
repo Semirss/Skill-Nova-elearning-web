@@ -4,17 +4,12 @@ import { useEffect, useState } from "react"
 const AllCourses = () => {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
-  // const location = useLocation();
-  // const queryParams = new URLSearchParams(location.search);
-  // const questionID = queryParams.get('questionID');
 
     useEffect(() => {
       const fetchData = async () => {
           try {
               const response = await axios.get('http://localhost:80/Skill-nova-BackEnd/index.php?action=fetchData');
-              console.log('Full API response:', response);
               setData(response.data);
-              // console.log('Data fetched:', response.data);
           } catch (error) {
               console.error('Error fetching data:', error);
           }

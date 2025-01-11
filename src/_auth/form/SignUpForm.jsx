@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
       const[fullName, setFullName] = useState('');
@@ -7,7 +8,7 @@ const SignUpForm = () => {
       const[email, setEmail] = useState('');
       const[password, setPassword] = useState('');
       const[message, setMessage] = useState('');
-      // const[user, setUser] = useState('');
+      const navigate = useNavigate();
 
       const handleSubmit = async (event) => {
         event.preventDefault();
@@ -25,21 +26,16 @@ const SignUpForm = () => {
     
         try {
             const response = await axios.post(`${API_URL}`, requestData);
-            console.log('Raw response:', response);
     
             const data = response.data;
-            console.log('Received response:', data);
-            console.log('data.success:', data.success); 
-            console.log('data.message:', data.message);
-            // console.log('data.message:', data.userID);
     
             if (data.success) {
                 setMessage("Registered successfully!");
+                navigate('/sign-in')
             } else {
                 setMessage(`SignUp Failed: ${data.message}`);
             }
-        } catch (error) {
-            console.error('Error submitting form:', error);
+        } catch {
             setMessage("An error occurred. Please try again.");
         }
     }
@@ -51,46 +47,24 @@ const SignUpForm = () => {
           <h1 className="text-2xl font-bold mb-4">Register</h1>
           <div className="flex flex-col items-center gap-2 w-full">
             <label htmlFor="fName" className="self-start ml-8">Full Name</label>
-            <input 
-              type="text" 
-              id="fName" 
-              name="firstName" 
-              value={fullName} 
-              onChange={(e) => setFullName(e.target.value)}
-              className="w-full p-2 border rounded-md text-black"
-            />
+            <input type="text" id="fName" name="firstName" value={fullName} onChange={(e) => setFullName(e.target.value)} required
+            className="w-full p-2 border rounded-md text-black" />
           </div>
           <div className="flex flex-col items-center gap-2 w-full">
             <label htmlFor="uName" className="self-start ml-8">User Name</label>
-            <input 
-              type="text" 
-              id="uName" 
-              name="userName" 
-              value={userName} 
-              onChange={(e) => setUserName(e.target.value)}
-              className="w-full p-2 border rounded-md text-black"
-            />
+            <input type="text" id="uName" name="userName" value={userName} onChange={(e) => setUserName(e.target.value)} required
+            className="w-full p-2 border rounded-md text-black"/>
           </div>
           <div className="flex flex-col items-center gap-2 w-full">
             <label htmlFor="email" className="self-start ml-8">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border rounded-md text-black"
+            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-2 border rounded-md text-black"
             />
           </div>
           <div className="flex flex-col items-center gap-2 w-full">
             <label htmlFor="password" className="self-start ml-8">Password</label>
-            <input 
-              type="password" 
-              id="password" 
-              name="password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border rounded-md text-black"
+            <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required
+            className="w-full p-2 border rounded-md text-black"
             />
           </div>
           <button 

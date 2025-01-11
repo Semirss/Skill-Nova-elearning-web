@@ -9,8 +9,6 @@ const NumOfQuestions = () => {
                 <input type="number" name="numOfQuestions" id="numOfQuestions" className="w-24 pt-2 text-black" min="1" max="100"/>
                 <button type="submit" className="w-20 mt-8">Create</button>
             </div>
-            {/* <a href="/admin/quizzes/html/questions" className="w-20 ms-40 mt-2 pt-2 bg-lime-300 
-            ps-5 pe-5 h-10 rounded-lg">Create</a> */}
         </form>
     </div>
   )

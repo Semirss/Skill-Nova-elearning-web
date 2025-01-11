@@ -19,12 +19,7 @@ const SignInForm = () => {
                 password
             });
 
-            console.log('Full response:', response);
             const data = response.data;
-            console.log('Received response:', data);
-            console.log('data.success:', data.success);
-            console.log('data.userID:', data.userID);
-            
             if (data.success) {
                 setMessage("Login successful!");
                 // Store session data (username) and (userID)
@@ -35,7 +30,6 @@ const SignInForm = () => {
                 setMessage("Login Failed");
             }
         } catch {
-            // console.error("Error submitting form", error);
             setMessage("An error occurred. Please try again.");
         }
     }
@@ -47,12 +41,12 @@ const SignInForm = () => {
                 <div className="flex flex-col items-start w-full mb-4">
                     <label htmlFor="uName" className="mb-1">User Name</label>
                     <input type="text" id="uName" value={userName} onChange={(e) => setUserName(e.target.value)} 
-                    className="w-full p-2 border border-gray-300 rounded"/>
+                    className="w-full p-2 border border-gray-300 rounded" required/>
                 </div>
                 <div className="flex flex-col items-start w-full mb-4">
                     <label htmlFor="password" className="mb-1">Password</label>
                     <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded"/>
+                    className="w-full p-2 border border-gray-300 rounded" required/>
                 </div>
                 <button type="submit" 
                 className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200">

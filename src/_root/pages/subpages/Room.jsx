@@ -5,13 +5,13 @@ import { useLocation } from "react-router-dom";
 const Room = () => {
     const [question, setQuestion] = useState('');
     const [questionID, setQuestionID] = useState('');
-    // const [answer, setAnswer] = useState('');
     const [data, setData] = useState([]);
     const [allData, setAllData] = useState([]);
 
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const roomID = queryParams.get('answerRoomID');
+    const roomTitle = queryParams.get('title');
 
     useEffect(() => {
         if (questionID) {
@@ -19,16 +19,12 @@ const Room = () => {
                 try {
                     const response = await axios.get(`http://localhost:80/Skill-nova-BackEnd/index.php?questionID=${questionID}`);
                     setData(response.data);
-                    console.log('Full Answer response:', response);
-                    const data = response.data;
-                    console.log('Received Answer response:', data);
-                    console.log('data.success:', data.success);
                 } catch (error) {
                     console.error('Error fetching data:', error);
                 }
             };
             fetchDataByID();
-            const interval = setInterval(fetchDataByID, 5000);
+            const interval = setInterval(fetchDataByID, 3000);
             return () => clearInterval(interval);
         }
     }, [questionID]);
@@ -38,16 +34,12 @@ const Room = () => {
                 try {
                     const response = await axios.get(`http://localhost:80/Skill-nova-BackEnd/index.php?answerRoomID=${roomID}`);
                     setAllData(response.data);
-                    console.log('Full Answer response:', response);
-                    const data = response.data;
-                    console.log('Received Answer response:', data);
-                    console.log('data.success:', data.success);
                 } catch (error) {
                     console.error('Error fetching data:', error);
                 }
             };
             fetchAllData();
-            const interval = setInterval(fetchAllData, 5000);
+            const interval = setInterval(fetchAllData, 3000);
             return () => clearInterval(interval);
     }, [roomID]);
 
@@ -64,10 +56,7 @@ const Room = () => {
                 question
             });
 
-            console.log('Full response:', response);
             const data = response.data;
-            console.log('Received response:', data);
-            console.log('data.success:', data.success);
 
             if (data.success) {
                 alert("Success");
@@ -81,26 +70,19 @@ const Room = () => {
     }
     return (
         <div className="first-room mt-14 md:mt-0">
-            <h5 className="pt-10 text-2xl font-semibold text-center text-blue-900">HTML Room</h5>
+            <h5 className="pt-10 text-2xl font-semibold text-center text-blue-900">{roomTitle}</h5>
             <div className="mt-8 max-w-4xl">
                 {!questionID ? (
                 <div className="flex justify-center">
                     <form onSubmit={handleSubmit} className="relative w-full max-w-lg p-6 bg-white shadow-md rounded-lg">
-                    <label htmlFor="question" className="block text-lg font-medium text-gray-700 mb-2">Ask Question</label>
-                    <textarea
-                        name="ask"
-                        id="question"
-                        className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        rows={5}
-                        value={question}
-                        onChange={(e) => setQuestion(e.target.value)}
-                    ></textarea>
-                    <button
-                        type="submit"
-                        className="mt-4 w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                        Ask
-                    </button>
+                        <label htmlFor="question" className="block text-lg font-medium text-gray-700 mb-2">Ask Question</label>
+                        <textarea name="ask" id="question" rows={5} value={question} onChange={(e) => setQuestion(e.target.value)}
+                            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </textarea>
+                        <button type="submit"
+                        className="mt-4 w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            Ask
+                        </button>
                     </form>
                 </div>
                 ) : (

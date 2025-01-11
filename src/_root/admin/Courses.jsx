@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-// import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
     const [data, setData] = useState([]);
@@ -11,8 +10,6 @@ const Courses = () => {
     const [description, setDescription] = useState('');
     const [duration, setDuration] = useState('');
     const [details, setDetails] = useState('');
-    // const navigate = useNavigate();
-    // const userID = localStorage.getItem('userID');
 
     const courseVisibility = () => {
         setIsVisibleCourses(!isVisibleCourses);
@@ -20,18 +17,6 @@ const Courses = () => {
         courses.style.pointerEvents = "none";
         courses.style.filter = "blur(3px)";
     }
-
-    // const updateCourse = async (courseID, courseData) => {
-    //     try {
-    //         const response = await axios.post('http://localhost:80/Skill-nova-BackEnd/index.php', {
-    //             updateCourseID: courseID,
-    //             courseData
-    //         });
-    //         console.log('Update Course Response:', response.data);
-    //     } catch (error) {
-    //         console.error('Error updating course:', error);
-    //     }
-    // };
 
     const deleteCourse = async (courseID) => {
         try {
@@ -93,25 +78,17 @@ const Courses = () => {
     
         try {
             const response = await axios.post(`${API_URL}`, requestData);
-            console.log('Raw response:', response);
-    
+        
             const data = response.data;
-            console.log('Received response:', data);
-            console.log('data.success:', data.success); 
-            console.log('data.message:', data.message);
-    
             if (data.success) {
                 alert("Added successfully!");
-                // navigate('/admin-page/courses');
                 courseVisibility();
                 courses.style.filter = "none";
                 window.location.reload();
             } else {
                 alert(`failed: ${data.message}`);
             }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            // setMessage("An error occurred. Please try again.");
+        } catch {
             alert("An error occurred. Please try again.");
         }
     }

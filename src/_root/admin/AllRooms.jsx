@@ -36,9 +36,7 @@ const AllRooms = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:80/Skill-nova-BackEnd/index.php?action=Allrooms');
-                console.log('Full API response:', response);
                 setData(response.data);
-                console.log('Data fetched:', response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }

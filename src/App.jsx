@@ -1,8 +1,6 @@
-// import { useState } from 'react'
 import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import AuthLayout from './_auth/authLayout'
-// import SignUpForm from './_auth/form/signUpForm'
 import SignInForm from './_auth/form/SignInForm'
 import PagesLayout from './_root/PagesLayout'
 import Dashboard from './_root/pages/Dashboard'
@@ -27,12 +25,8 @@ import Room from './_root/pages/subpages/Room'
 import AdminRoom from './_root/admin/AdminRoom'
 import Course3 from './_root/pages/subpages/Courses/Course3'
 import Courses from './_root/admin/Courses'
-// import Room1 from './_root/pages/Room1'
-// import Room2 from './_root/pages/subpages/Room2'
-// import RoomsLayout from './_root/RoomsLayout'
 
 function App() {
-  // const [count, setCount] = useState(0)
 
   return (
     <main>

@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Answer = () => {
     const [answer, setAnswer] = useState('');
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const questionID = queryParams.get('questionID');
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         const userID = localStorage.getItem('userID')
@@ -21,13 +22,12 @@ const Answer = () => {
                 answer
             });
 
-            console.log('Full response:', response);
             const data = response.data;
-            console.log('Received response:', data);
-            console.log('data.success:', data.success);
 
             if (data.success) {
                 alert("success");
+                navigate("/admin-page/all-rooms");
+                
             } else {
                 alert("Failed");
             }
@@ -47,7 +47,7 @@ const Answer = () => {
                         <form onSubmit={handleSubmit} className="flex flex-col gap-6 text-blue-950">
                             <textarea name="answer" id="answer" rows={7} value={answer} onChange={(e) => setAnswer(e.target.value)}
                             className="w-full p-4 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" 
-                            placeholder="Type your answer here..."
+                            required placeholder="Type your answer here..."
                             ></textarea>
                             <button type="submit" 
                             className="self-end px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-75">

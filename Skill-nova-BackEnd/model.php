@@ -3,10 +3,6 @@
 require_once 'db.php';
 
 class Model extends DB {
-    // protected $conn;
-    // public function __construct() {
-    //     $this->conn = $this->connect();
-    // }
     public function register($userName, $fullName, $password, $email) {
         $this->connect();
 
@@ -390,7 +386,6 @@ class Model extends DB {
             // Get the inserted question ID
             $questionID = $stmt->insert_id;
             $stmt->close();
-            // $this->updateRoomWithQuestion($questionID);
             $this->closeConnection();
             $response = ["success" => true, "questionID" => $questionID];
             $json_response = json_encode($response);
@@ -401,7 +396,6 @@ class Model extends DB {
             }
             return $questionID;
         } else {
-            // $error = "Error: " . $stmt->error;
             $stmt->close();
             $this->closeConnection();
             echo json_encode(["success" => false]);
@@ -410,7 +404,6 @@ class Model extends DB {
     }
     public function adminAnswer($questionID, $userID, $answer){
         $this->connect();
-        // $sql = "INSERT INTO room_answer (answer) VALUES (?)";
         $sql = "INSERT INTO room_answer (questionID, userid, answer) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
 
@@ -421,10 +414,7 @@ class Model extends DB {
         $stmt->bind_param("iis", $questionID, $userID, $answer);
 
         if ($stmt->execute()) {
-            // Get the inserted answer ID
-            // $answerID = $stmt->insert_id;
             $stmt->close();
-            // $this->updateRoomWithAnswer($answerID);
             $this->closeConnection();
             $response = ["success" => true];
             $json_response = json_encode($response);
@@ -435,54 +425,27 @@ class Model extends DB {
             }
             return;
         } else {
-            // $error = "Error: " . $stmt->error;
             $stmt->close();
             $this->closeConnection();
             echo json_encode(["success" => false]);
             return;
         }
     }
-    // public function updateRoomWithQuestion($questionID) {
-    //     $this->connect();
-    //     $sql = "INSERT INTO room (questionID) VALUES (?)";
-    //     $stmt = $this->conn->prepare($sql);
-    //     $stmt->bind_param("i", $questionID);
-    //     $stmt->execute();
-    //     $stmt->close();
-    //     $this->closeConnection();
-    // }
     
     public function updateRoomWithAnswer($questionID, $answerID) {
         $this->connect();
         $sql = "UPDATE room SET answerID = ? WHERE answerID IS NULL";
-        // $sql = "INSERT INTO room (questionID, answerID) VALUES (?, ?)";
         $stmt = $this->conn->prepare($sql);
-        // $stmt->bind_param("i", $answerID);
         $stmt->bind_param("ii", $questionID, $answerID);
         $stmt->execute();
         $stmt->close();
         $this->closeConnection();
     }
-    
-    // public function fetchAnswers(){
-    //     $this->connect();
-
-    //     $sql = "SELECT room_question.question, room_answer.answer
-    //     FROM room
-    //     JOIN room_question
-    //     ON room.questionID = room_question.questionID
-    //     JOIN room_answer
-    //     ON room.answerID = room_answer.answerID";
-    //     $result = $this->conn->query($sql);
-    //     return $result;
-    // }
 
     public function fetchQuestion($roomID){
         $this->connect();
 
         $sql = "SELECT * FROM room_question WHERE roomid=?";
-        // $result = $this->conn->query($sql);
-        // return $result;
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $roomID);
     
@@ -520,7 +483,6 @@ class Model extends DB {
                 LEFT JOIN room_answer ra 
                 ON rq.questionID = ra.questionID
                 WHERE rq.roomID = ?";
-        // $result = $this->conn->query($sql);
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $roomID);
     
@@ -530,16 +492,6 @@ class Model extends DB {
     
         $result = $stmt->get_result();
         return $result;
-    
-        // $questionsAnswers = [];
-        // if ($result->num_rows > 0) {
-        //     while($row = $result->fetch_assoc()) {
-        //         $questionsAnswers[] = $row;
-        //     }
-        // }
-    
-        // $this->closeConnection();
-        // return $questionsAnswers;
     }
     public function fetchRooms(){
         $this->connect();
@@ -548,22 +500,6 @@ class Model extends DB {
         $result = $this->conn->query($sql);
         return $result;
     }
-    // public function fetchUserID() {
-    //     $this->connect();
-    
-    //     $sql = "SELECT userid FROM user";
-    //     $result = $this->conn->query($sql);
-    
-    //     $questionsAnswers = [];
-    //     if ($result->num_rows > 0) {
-    //         while($row = $result->fetch_assoc()) {
-    //             $questionsAnswers[] = $row;
-    //         }
-    //     }
-    
-    //     $this->closeConnection();
-    //     return $questionsAnswers;
-    // }
 }
 
 ?>
