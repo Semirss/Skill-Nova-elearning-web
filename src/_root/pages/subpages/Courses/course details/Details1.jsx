@@ -30,11 +30,6 @@ const Details1 = () => {
 
   const [isVisible, setIsVisible] = useState(false);
 
-  // const courses = () => {
-  //   setIsVisible(!isShowed);
-  // }
-  // setIsVisible(!isShowed);
-
   const enrollStudent = async (event) => {
     setIsVisible(!isVisible);
 
@@ -45,24 +40,17 @@ const Details1 = () => {
       const response = await axios.post(`${API_URL}`, {
         action: 'enrollStudent',
         userID: userID,
-        // studentID: studentID,
         courseID: courseID
       });
-      console.log('Raw response:', response);
 
       const data = response.data;
-      console.log('Received Student response:', data);
-      console.log('data.success:', data.success);
-      console.log('data.message:', data.message);
-      console.log(data.studentID);
 
       if (data.success) {
         setMessage(data.message);
       } else {
         setMessage(data.message);
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch {
       setMessage("An error occurred. Please try again.");
     }
   }

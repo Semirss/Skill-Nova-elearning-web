@@ -1,14 +1,8 @@
 <?php
 
 require_once 'model.php';
-// require_once 'db.php';
-// include 'includes/include.php';
 
 class Controller extends Model {
-    // private $model;
-    // public function __construct() {
-    //     $this->model = new Model();
-    // }
     public function register($userName, $fullName, $password, $email) {
         $model = new Model();
         $model->register($userName, $fullName, $password, $email);
@@ -118,8 +112,6 @@ class Controller extends Model {
     public function answer($questionID, $userID, $answer) {
         $model = new Model();
         $model->adminAnswer($questionID, $userID, $answer);
-        // $answerID = $model->adminAnswer($answer);
-        // return $model->updateRoomWithAnswer($questionID, $answerID);
     }
     public function courses(){
         $model = new Model();
@@ -151,7 +143,6 @@ class Controller extends Model {
     }
     public function getAnswers($questionID){
         $model = new Model();
-        // return $model->fetchQuestionsAnswers($questionID);
         $result = $model->fetchQuestionsAnswers($questionID);
         $data = [];
         if ($result->num_rows > 0) {
@@ -159,7 +150,6 @@ class Controller extends Model {
                 $data[] = $row;
             }
         }
-        // echo json_encode($data);
         $this->closeConnection();
         return $data;
     }

@@ -1,61 +1,170 @@
 import { useState } from "react";
 
 const Course2 = () => {
+  const [currentWeek, setCurrentWeek] = useState(1);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(1);
-  const handleVisibilty = (listNumber) => {
-    setIsVisible(listNumber);
-  }
 
+  const weeks = [
+    // week 1
+    {
+      week: 1,
+      title: "Introduction to the course",
+      videos: [
+        // week 1 First video
+        {
+          title: "Introduction Part 1",
+          videoSrc: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          downloads: [
+            "Lecture video (240p) mp4",
+            "Lecture video (360p) mp4",
+            "Lecture video (720p) mp4"
+          ]
+        },
+        // week 1 Second video
+        {
+          title: "Introduction Part 2",
+          videoSrc: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          downloads: [
+            "Lecture video (240p) mp4",
+            "Lecture video (360p) mp4",
+            "Lecture video (720p) mp4"
+          ]
+        },
+        // week 1 Third video
+        {
+          title: "Introduction Part 2",
+          videoSrc: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          downloads: [
+            "Lecture video (240p) mp4",
+            "Lecture video (360p) mp4",
+            "Lecture video (720p) mp4"
+          ]
+        },
+        // week 1 Fourth video
+        {
+          title: "Introduction Part 2",
+          videoSrc: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          downloads: [
+            "Lecture video (240p) mp4",
+            "Lecture video (360p) mp4",
+            "Lecture video (720p) mp4"
+          ]
+        },
+      ]
+    },
+    // Week 2
+    {
+      week: 2,
+      title: "Introduction to the course",
+      videos: [
+        // week 2 First video
+        {
+          title: "HTML Basics Part 1",
+          videoSrc: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          downloads: [
+            "Lecture video (240p) mp4",
+            "Lecture video (360p) mp4",
+            "Lecture video (720p) mp4"
+          ]
+        },
+        // week 2 Second video
+        {
+          title: "HTML Basics Part 2",
+          videoSrc: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          downloads: [
+            "Lecture video (240p) mp4",
+            "Lecture video (360p) mp4",
+            "Lecture video (720p) mp4"
+          ]
+        },
+        // week 2 Third video
+        {
+          title: "HTML Basics Part 3",
+          videoSrc: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          downloads: [
+            "Lecture video (240p) mp4",
+            "Lecture video (360p) mp4",
+            "Lecture video (720p) mp4"
+          ]
+        },
+        // week 2 Fourth video
+        {
+          title: "HTML Basics Part 4",
+          videoSrc: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          downloads: [
+            "Lecture video (240p) mp4",
+            "Lecture video (360p) mp4",
+            "Lecture video (720p) mp4"
+          ]
+        },
+      ]
+    },
+  ]
+
+  // Get the current week and video data
+  const currentWeekData = weeks.find(week => week.week === currentWeek);
+  const currentVideoData = currentWeekData.videos[currentVideoIndex];
+  
+  const handleVisibility = (value) => {
+    setIsVisible(value);
+  };
   return (
     <div className="course-1 mt-12">
-      <h1 className="font-bold text-lg">CSS Course</h1>
+      <h1 className="font-bold text-lg">HTML Course</h1>
       <div className="relative mt-12 flex flex-col gap-16 lg:gap-32 lg:flex-row me-10">
         <div className="absolute left-0 right-0 flex flex-col sm:flex-row">
           <div className="flex gap-3 flex-grow">
-            <a href="course-details-1/#week1" className="text-blue-700">Week 1</a>
-            <p>&gt;</p>
-            <a href="" className="text-blue-700 text-nowrap">Introduction to the course</a>
-          </div>
-          <div className="flex me-8 mt-2 sm:mt-0 gap-7">
-            <div>
-              <a href="/all courses/course-1" className="flex gap-3 text-blue-700">
-                <p>&lt;</p>
-                <p>Previous</p>
+            {weeks.map(week => (
+              <a key={week.week} href={`#week${week.week}`} className="text-blue-700"
+              onClick={() => { setCurrentWeek(week.week); setCurrentVideoIndex(0); }}>
+                {`Week ${week.week}`}
               </a>
-            </div>
-            <div>
-              <a href="/all courses/course-3" className="flex gap-3 text-blue-700">
-                <p>Next</p>
-                <p>&gt;</p>
-              </a>
-            </div>
+            ))}
           </div>
         </div>
-        <div className="relative mt-16 sm:mt-10 mb-4 w-[100%]">
-          {/* <iframe className="w-[100%] h-full" src="https://www.youtube.com/watch?v=AkdVOhYh6fs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-          <video className="w-[100%]" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">Introduction to the course</video>
+        <div id={`week${currentWeek}`} className="relative mt-16 sm:mt-10 mb-4 w-[100%]">
+          <video className="w-[100%]" src={currentVideoData.videoSrc} controls>
+            {currentVideoData.title}
+          </video>
+          <div className="flex gap-4 mt-4">
+            {currentWeekData.videos.map((video, index) => (
+              <button key={index} onClick={() => setCurrentVideoIndex(index)}
+              className={`px-4 py-2 border ${currentVideoIndex === index ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`}>
+                {video.title}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
       <div className="flex flex-col gap-5">
         <div>
-          <h1 className="text-2xl font-medium">Introduction to the course</h1>
+          <h1 className="text-2xl font-medium">{currentVideoData.title}</h1>
         </div>
         <div className="mb-40">
           <ul className="flex gap-8">
-            <li className="text-lg font-medium cursor-pointer" onClick={() => handleVisibilty(1)}>Downloads</li>
-            <li className="text-lg font-medium cursor-pointer" onClick={() => handleVisibilty(2)}>Ask Questions</li>
+            <li className="text-lg font-medium cursor-pointer download" onClick={() => handleVisibility(1)}>
+              Downloads
+            </li>
+            <li className="text-lg font-medium cursor-pointer question" onClick={() => handleVisibility(2)}>
+              Ask Questions
+            </li>
           </ul>
           <hr className="border-gray-400 mt-2"/>
           {isVisible === 1 && (
-            <div className="download flex flex-col mt-1 gap-5 text-blue-900">
-              <a href="" download className="hover:underline">Lecture video(240 p) mp4</a>
-              <a href="" download className="hover:underline">Lecture video(360 p) mp4</a>
-              <a href="" download className="hover:underline">Lecture video(720 p) mp4</a>
+            <div className="flex flex-col mt-1 gap-5 text-blue-900">
+              {currentVideoData.downloads.map((download, index) => (
+                <a key={index} href="" download className="hover:underline">{download}</a>
+              ))}
             </div>
           )}
           {isVisible === 2 && (
-            <div className="question mt-2">
-              <h1>Go to <a href="/rooms/room1" className="text-blue-900 hover:underline">rooms</a> page to ask your questions</h1>
+            <div className="mt-2">
+              <h1>Go to&nbsp;
+                <a href={currentWeekData.questionsLink} className="text-blue-900 hover:underline">
+                  rooms
+                </a> page to ask your questions
+              </h1>
             </div>
           )}
         </div>

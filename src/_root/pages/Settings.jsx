@@ -43,12 +43,7 @@ const Settings = () => {
     
         try {
             const response = await axios.post(`${API_URL}`, requestData);
-            console.log('Raw response:', response);
-    
             const data = response.data;
-            console.log('Received response:', data);
-            console.log('data.success:', data.success); 
-            console.log('data.message:', data.message);
     
             if (data.success) {
                 alert("Updated successfully!");
@@ -56,9 +51,7 @@ const Settings = () => {
             } else {
                 alert(`failed: ${data.message}`);
             }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            // setMessage("An error occurred. Please try again.");
+        } catch {
             alert("An error occurred. Please try again.");
         }
     }
@@ -85,15 +78,12 @@ const Settings = () => {
     }, []);
     
     const deleteAccount = async () => {
-        // const userID = localStorage.getItem('userID');
         try {
             const response = await axios.post('http://localhost:80/Skill-nova-BackEnd/index.php', {
                 action: 'deleteProfile',
                 userID,
             });
             console.log('Full API response:', response);
-            // setData(response.data);
-            console.log('Data fetched:', response.data);
             alert("Deleted successfully");
 
             navigate('/')
