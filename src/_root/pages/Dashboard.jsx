@@ -259,7 +259,7 @@ const Dashboard = () => {
               wordWrap: "break-word",
             }}
           >
-            <p>Cources</p>
+          <p>Cources</p>
           </div>
 
           {/* Courses Section */}

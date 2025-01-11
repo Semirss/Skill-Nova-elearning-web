@@ -16,25 +16,25 @@ const ToggleBar = () => {
         <nav className="nav-menu">
             <nav className="navbar-top">
                 <ul>
-                    <img src="assets/images/home.png" width={22} height={22} alt="Home Icon" />
+                    <img src="/assets/images/home.png" width={22} height={22} alt="Home Icon" />
                     <a href="">
                         <li>Home</li>
                     </a>
                 </ul>
                 <ul>
-                    <img src="assets/images/dashboard.png" alt="Dashboard Icon" />
+                    <img src="/assets/images/dashboard.png" alt="Dashboard Icon" />
                     <a href="">
                         <li>Dashboard</li>   
                     </a>
                 </ul>
                 <ul>
-                    <img src="assets/images/courses.png" alt="Courses Icon" />
+                    <img src="/assets/images/courses.png" alt="Courses Icon" />
                     <a href="">
-                        <li>All Course</li>   
+                        <li>All Courses</li>   
                     </a>
                 </ul>
                 <ul>
-                    <img src="assets/images/rooms.png" alt="Rooms Icon" />
+                    <img src="/assets/images/rooms.png" alt="Rooms Icon" />
                     <a href="">
                         <li>Rooms</li>    
                     </a>
@@ -43,13 +43,13 @@ const ToggleBar = () => {
             <hr className="mt-20"/>
             <nav className="navbar-bottom">
                 <ul>
-                    <img src="assets/images/setting.png" alt="" />
+                    <img src="/assets/images/setting.png" alt="" />
                     <a href="">
                         <li>Settings</li>
                     </a>
                 </ul>
                 <ul>
-                    <img src="assets/images/logout.png" alt="" />
+                    <img src="/assets/images/logout.png" alt="" />
                     <a href="">
                         <li>Logout</li>
                     </a>
