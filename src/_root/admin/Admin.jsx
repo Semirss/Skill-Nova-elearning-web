@@ -1,103 +1,28 @@
-import { useState } from "react";
-
 const Admin = () => {
-  // const [isVisible, setIsVisible] = useState(0);
-  const [isVisibleRooms, setIsVisibleRooms] = useState(false);
-  const [isVisibleCourses, setIsVisibleCourses] = useState(false);
-  // const admin = (num) => {
-  //   const auth = document.querySelector('.auth-form');
+  const links = [
+    { href: "/admin/students", title: "Students", imgSrc: "/assets/images/students.png", imgAlt: "Students" },
+    { href: "/admin-page/courses", title: "Courses", imgSrc: "/assets/images/add-courses.png", imgAlt: "Courses" },
+    { href: "admin-page/all-rooms", title: "Rooms", imgSrc: "/assets/images/add-rooms.png", imgAlt: "Rooms" },
+    { href: "/admin/quizzes", title: "Create Quizzes", imgSrc: "/assets/images/quizzes.png", imgAlt: "Create Quizzes" }
+  ];
 
-  //   setIsVisible(num);
-  //   auth.style.display = "none";
-  // }
-  const changeRooms = () => {
-    setIsVisibleRooms(!isVisibleRooms);
-    const admin = document.querySelector('.admin');
-    admin.style.pointerEvents = "none";
-    admin.style.filter = "blur(3px)";
-  }
-  const changeCourses = () => {
-    setIsVisibleCourses(!isVisibleCourses);
-    const admin = document.querySelector('.admin');
-    admin.style.pointerEvents = "none";
-    admin.style.filter = "blur(3px)";
-  }
-  const add = () => {
-    alert("Added Successfully");
-  }
   return (
-    <div className="relative">
-      <div className="admin absolute top-0">
-        <div className="bg-primary h-14 w-screen text-secondary ps-12 pt-4">
-          <h1 className="">Skill Nova</h1>
+    <div className="relative min-h-screen bg-gray-100">
+      <header className="bg-primary h-14 w-full text-secondary px-12 py-4 shadow-md">
+        <h1 className="text-2xl font-bold">Skill Nova</h1>
+      </header>
+      <main className="container mx-auto mt-20 px-4 md:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {links.map((link, index) => (
+            <a key={index} href={link.href}
+              className="h-52 flex flex-col items-center justify-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+              <h1 className="text-lg font-semibold mb-2 text-gray-800">{link.title}</h1>
+              <img src={link.imgSrc} alt={link.imgAlt}
+                className="w-24 h-24 border-white border-2 rounded-full"/>
+            </a>
+          ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mt-20 ms-20 me-20">
-          <a href="/admin/students" className="h-52 flex gap-0 items-center bg-blue-100">
-            <h1 className="text-center mt-4">Students</h1>
-            <img src="/assets/images/students.png" className="w-full h-full border-white border-2" alt="" />
-          </a>
-          <div className="h-52 cursor-pointer flex gap-0 items-center bg-blue-100" onClick={changeCourses}>
-            <h1 className="ps-2">Add Courses</h1>
-            <img src="/assets/images/add-courses.png" alt="" className="w-full h-full border-white border-2" />
-          </div>
-          <div className="h-52 cursor-pointer flex gap-0 items-center bg-blue-100" onClick={changeRooms}>
-            <h1 className="ps-2">Add Rooms</h1>
-            <img src="/assets/images/add-rooms.png" alt="" className="w-full h-full border-white border-2"/>
-          </div>
-          <a href="/admin/quizzes" className="h-52 cursor-pointer flex gap-0 items-center bg-blue-100">
-            <h1 className="ps-2">Create Quizzes</h1>
-            <img src="/assets/images/quizzes.png" alt="" className="w-full h-full border-white border-2"/>
-          </a>
-        </div>
-      </div>
-
-      {isVisibleCourses && (
-        <div className="flex flex-col gap-5 bg-primary text-white fixed left-12 right-12 md:left-[7rem] md:right-20 lg:left-[10rem] lg:right-36 xl:left-[15rem] 
-        xl:right-64 top-32 justify-center items-center h-96">
-          <h1>Add Courses</h1>
-          <form action="" className="flex flex-col gap-4">
-              <div className="flex flex-col gap-0.5">
-                  <label htmlFor="title" className="ps-2">Course Title</label>
-                  <input type="text" name="title" id="title" className="text-black"/>
-              </div>
-              <div className="flex flex-col gap-0.5">
-                  <label htmlFor="description" className="ps-2">Course Description</label>
-                  <input type="text" name="description" id="description" className="text-black" />
-              </div>
-              <div className="flex flex-col gap-0.5">
-                  <label htmlFor="duration" className="ps-2">Course Duration</label>
-                  <input type="text" name="duration" id="duration" className="text-black"/>
-              </div>
-              <button type="submit" className="w-20 mt-2 ms-20 border-[1px]" onClick={add}>Add</button>
-          </form>
-        </div>
-      )}
-
-      {isVisibleRooms && (
-        <div className="flex flex-col gap-5 bg-primary text-white fixed left-12 right-12 md:left-[7rem] md:right-20 lg:left-[10rem] lg:right-36 xl:left-[15rem] 
-        xl:right-64 top-32 justify-center items-center h-96">
-          <h1>Add Rooms</h1>
-          <form action="" className="flex flex-col gap-4">
-              <div className="flex flex-col gap-0.5">
-                  <label htmlFor="title" className="ps-2">Course Title</label>
-                  <input type="text" name="title" id="title" className="text-black"/>
-              </div>
-              <div className="flex flex-col gap-0.5">
-                  <label htmlFor="description" className="ps-2">Description</label>
-                  <input type="text" name="description" id="description" className="text-black"/>
-              </div>
-              {/* <div className="flex flex-col gap-0.5">
-                  <label htmlFor="questions" className="ps-2">Questions</label>
-                  <input type="text" name="questions" id="questions" />
-              </div> */}
-              {/* <div className="flex flex-col gap-0.5">
-                  <label htmlFor="answers" className="ps-2">Answers</label>
-                  <input type="text" name="answers" id="answers" />
-              </div> */}
-              <button type="submit" className="w-20 mt-2 ms-20 border-[1px]" onClick={add}>Add</button>
-          </form>
-        </div>
-      )}
+      </main>
     </div>
   )
 }

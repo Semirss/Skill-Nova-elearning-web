@@ -278,6 +278,21 @@ class Model extends DB {
 
         return ["result" => $result, "stmt" => $stmt];
     }
+    public function getAdmin($userName) {
+        $this->connect();
+    
+        $sql = "SELECT * FROM admin WHERE userName = ?";
+        $stmt = $this->conn->prepare($sql);
+        if (!$stmt) {
+            echo json_encode(["success" => false, "message" => "Prepare failed: " . $this->conn->error]);
+            return;
+        }
+        $stmt->bind_param("s", $userName);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return ["result" => $result, "stmt" => $stmt];
+    }
     public function getUserProfile($userID){
         $this->connect();
     

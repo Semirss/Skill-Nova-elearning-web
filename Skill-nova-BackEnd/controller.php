@@ -56,6 +56,31 @@ class Controller extends Model {
         echo json_encode(["success" => false, "message" => "Invalid username or password"]);
         return;
     }
+    public function adminLogin($userName, $password) {
+        $model = new Model();
+        $userData = $model->getAdmin($userName);
+        $user = $userData['result'];
+        $stmt = $userData['stmt'];
+        
+
+        if ($row = $user->fetch_assoc()) {
+            $storedPassword = $row['password'];
+            $pwdCheck = $storedPassword==$password;//password_verify($password, $storedPassword);
+            if ($pwdCheck) {
+                $userName = $row['userName'];
+                $stmt->close();
+                $model->closeConnection();
+                echo json_encode(["success" => true, "userName" => $userName]);
+                return;
+            }
+        }
+        
+
+        $stmt->close();
+        $this->closeConnection();
+        echo json_encode(["success" => false, "message" => "Invalid username or password"]);
+        return;
+    }
     public function fetchUser($userID){
         $model = new Model();
         $result = $model->getUserProfile($userID);

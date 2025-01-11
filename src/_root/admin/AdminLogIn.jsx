@@ -1,19 +1,58 @@
+
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const AdminLogIn = () => {
+    const[userName, setUserName] = useState('');
+    const[password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const API_URL = "http://localhost:80/Skill-nova-BackEnd/index.php";
+
+        try {
+            const response = await axios.post(`${API_URL}`, {
+                action: 'adminLogin',
+                userName,
+                password
+            });
+
+            console.log('Full response:', response);
+            const data = response.data;
+            console.log('Received response:', data);
+            console.log('data.success:', data.success);
+            console.log('data.userID:', data.userID);
+            
+            if (data.success) {
+                alert("Login successful!");
+                // navigate('/adminPage')
+            } else {
+                alert("Login Failed");
+                navigate('/admin-page')
+            }
+        } catch {
+            alert("An error occurred. Please try again.");
+        }
+    }
+
   return (
-    <div className="relative">
-      <div className="auth-form bg-white border-[.2px] border-primary fixed left-12 right-12 xl:left-[24rem] 
-      xl:right-96 top-32 justify-center items-center h-[25rem] rounded-lg">
-        <form action="" className="flex flex-col gap-5 items-center text-blue-950">
-          <h1>Log In</h1>
-          <div className="flex flex-col items-center gap-2">
-            <label htmlFor="uName" className="-ms-28">User Name</label>
-            <input type="text"id="uName" name="userName" className="w-[200px] text-black"/>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="auth-form bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <h1 className="text-2xl font-bold text-center text-blue-950">Log In</h1>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="uName" className="text-sm font-medium text-gray-700">User Name</label>
+            <input type="text" id="uName" name="userName" className="w-full px-4 py-2 border rounded-md text-black focus:outline-none focus:ring-2 focus:ring-primary"
+            value={userName} onChange={(e) => setUserName(e.target.value)}/>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <label htmlFor="password" className="-ms-32">Password</label>
-            <input type="text"id="password" name="password" className="w-[200px] text-black"/>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="password" className="text-sm font-medium text-gray-700">Password</label>
+            <input type="password" id="password" name="password" className="w-full px-4 py-2 border rounded-md text-black focus:outline-none focus:ring-2 focus:ring-primary"
+            value={password} onChange={(e) => setPassword(e.target.value)}/>
           </div>
-          <button className="border-[1px] w-[80px]">
+          <button className="w-full py-2 mt-4 bg-primary text-white rounded-md hover:bg-primary-dark transition duration-300">
             <a href="/admin-page">Login</a>
           </button>
         </form>

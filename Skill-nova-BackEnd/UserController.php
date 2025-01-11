@@ -12,6 +12,8 @@ class UserController extends Controller {
             if (isset($data['action'])) {
                 if ($data['action'] === 'login' && isset($data['userName']) && isset($data['password'])) {
                     $user->login($data['userName'], $data['password']);
+                } else if ($data['action'] === 'adminLogin' && isset($data['userName']) && isset($data['password'])) {
+                    $user->adminLogin($data['userName'], $data['password']);
                 } else if ($data['action'] === 'register' && isset($data['userName']) && isset($data['fullName']) &&
                     isset($data['password']) && isset($data['email'] )) {
                     $user->register($data['userName'], $data['fullName'], $data['password'], $data['email']);
