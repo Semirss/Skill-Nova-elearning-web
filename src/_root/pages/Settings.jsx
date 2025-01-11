@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
@@ -17,7 +18,6 @@ const Settings = () => {
         const profile = document.querySelector('.profile');
         const deleteAcc = document.querySelector('.delete-account');
         const settingsH1 = document.querySelector('.settings-h1');
-
         profile.style.pointerEvents = "none";
         profile.style.filter = "blur(3px)"
         deleteAcc.style.pointerEvents = "none";
