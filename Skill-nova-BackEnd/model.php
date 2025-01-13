@@ -274,7 +274,6 @@ class Model extends DB {
 
         return ["result" => $result, "stmt" => $stmt];
     }
-
     public function getAdmin($userName) {
         $this->connect();
     
@@ -290,7 +289,6 @@ class Model extends DB {
 
         return ["result" => $result, "stmt" => $stmt];
     }
-    
     public function getUserProfile($userID){
         $this->connect();
     
