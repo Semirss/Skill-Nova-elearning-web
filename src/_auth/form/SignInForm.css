@@ -1,0 +1,159 @@
+/* Container for the entire page background */
+.cont {
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Form container that centers the form on the screen */
+  .auth-form-container {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Full container height */
+    padding: 20px;
+  }
+  
+  /* Styling for the form itself */
+  .auth-form {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin: 0 auto; 
+  }
+  
+  .auth-form:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Title styling for the form */
+  .form-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  /* Styling for each form group (label + input) */
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+    background-color: #fff; /* Ensures a light background */
+    color: #2c3e50; /* Dark color for the text to make it visible */
+  }
+  
+  .form-group input:focus {
+    border: 1px solid #3498db; /* Highlight border on focus */
+    outline: none;
+    background-color: #f9f9f9; /* Slightly lighter background on focus */
+    color: #2c3e50; /* Ensure text remains visible */
+  }
+  
+  
+  /* Styling for the submit button */
+  .submit-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background: linear-gradient(135deg, #8e44ad, #3498db);
+    transform: translateY(-2px);
+  }
+  
+  /* Link to register a new account */
+  .form-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #000000;
+  }
+  
+  .register-link {
+    color: #3498db;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .register-link:hover {
+    color: #8e44ad;
+  }
+  
+  /* Error message styling */
+  .error-message {
+    margin-top: 20px;
+    color: #e74c3c;
+    font-size: 14px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .auth-form {
+      padding: 30px;
+      max-width: 350px;
+    }
+  
+    .form-title {
+      font-size: 24px;
+    }
+  
+    .form-group input {
+      font-size: 14px;
+    }
+  
+    .submit-button {
+      padding: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .auth-form {
+      padding: 20px;
+      max-width: 90%;
+    }
+  
+    .form-title {
+      font-size: 22px;
+    }
+  
+    .form-group input {
+      font-size: 13px;
+    }
+  
+    .submit-button {
+      padding: 10px;
+    }
+  }
+  

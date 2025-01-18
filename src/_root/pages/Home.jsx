@@ -1,3 +1,6 @@
+import './css/bootstrap.min.css'
+import './css/style.css';
+
 const Home = () => {
   const styles = {
     container: {
@@ -9,39 +12,38 @@ const Home = () => {
       fontFamily: "Arial, sans-serif",
     },
     navbar: {
-      display: "flex",
+      display: "inline-flex",
       justifyContent: "space-between",
       alignItems: "center",
       width: "100%",
       padding: "1rem 2rem",
       backgroundColor: "#000",
+      
     },
+    
     btn: {
       margin: "0",
-
+      padding:"5px",
+      borderRadius:"5px",
       width: "5rem",
       backgroundColor: "#f0f0f0",
       color: "#000",
-      marginTop: "-7px",
+      marginTop: "-10px",
       boxShadow: "0 2px 4px rgba(0, 0, 0, 0.8)",
     },
+    
     btn2: {
-      margin: "0",
+      marginLeft: "-6px",
+      padding:"5px",
+      borderRadius:"5px",
       width: "5rem",
+      marginTop: "-10px",
       boxShadow: "0 2px 4px rgba(255, 255, 255, 0.4)",
       backgroundColor: "#4fafff",
       color: "#000",
-      marginTop: "-7px",
+      
     },
-    btn3: {
-      marginLeft: "7%",
-      height: "45px",
-      width: "8rem",
-      backgroundColor: "#f0f0f0",
-      color: "#000",
-      marginTop: "10px",
-      boxShadow: "2px 2px 4px rgba(255, 255, 255, 0.4)",
-    },
+    
     logo: {
       fontSize: "1.7rem",
       fontWeight: "bold",
@@ -53,6 +55,7 @@ const Home = () => {
     },
     link: {
       color: "#fff",
+      
       textDecoration: "none",
       fontSize: "1rem",
       fontWeight: "bold",
@@ -61,7 +64,7 @@ const Home = () => {
       position: "relative",
       width: "100%",
       height: "80vh",
-      backgroundImage: "url('public/assets/dashimages/ffgh.webp')", // Replace with the correct image path
+      backgroundImage: "url('public/assets/dashimages/ffgh.webp')", 
       backgroundSize: "cover",
       backgroundPosition: "center",
       display: "flex",
@@ -83,7 +86,7 @@ const Home = () => {
       width: "30%",
       fontSize: "1.2rem",
       marginTop: "0.5rem",
-      color: "#fff",
+      color: "#fffff",
       textAlign: "start",
       textShadow: "0px 4px 6px rgba(0,0,0,0.5)",
     },
@@ -168,6 +171,7 @@ const Home = () => {
       padding: "2rem 1rem",
       borderTop: "1px solid #ddd",
       marginTop: "0px",
+
     },
     innerContainer: {
       display: "grid",
@@ -175,20 +179,23 @@ const Home = () => {
       gap: "1rem",
       maxWidth: "1200px",
       margin: "0 auto",
+
     },
     logoSection: {
       display: "flex",
       flexDirection: "column",
       alignItems: "flex-start",
+      
     },
     logoIcons: {
       display: "flex",
       gap: "0.5rem",
       marginTop: "1rem",
+      
     },
     logoIcon: {
       fontSize: "1.5rem",
-      color: "#333",
+      color: "#fff",
       cursor: "pointer",
     },
     column: {
@@ -199,9 +206,12 @@ const Home = () => {
       fontSize: "1.1rem",
       fontWeight: "bold",
       marginBottom: "0.5rem",
+      color: "#fff",
+
     },
     columnItem: {
       fontSize: "0.9rem",
+      color: "#fff",
 
       marginBottom: "0.5rem",
       cursor: "pointer",
@@ -240,6 +250,7 @@ const Home = () => {
     form: {
       display: "flex",
       marginLeft: "10%",
+     justifyContent: "center",
       gap: "15px",
     },
     label: {
@@ -262,7 +273,8 @@ const Home = () => {
     // },
     button: {
       width: "100px",
-      marginTop: "10px",
+      height: "40px",
+      marginTop: "33px",
       padding: "5px",
       fontSize: "1rem",
       backgroundColor: "#007BFF",
@@ -277,32 +289,29 @@ const Home = () => {
     },
   };
 
+  
   return (
+  <>
     <div style={styles.container}>
       {/* Navbar */}
       <nav className="navbar" style={styles.navbar}>
         <div style={styles.logo}> Skill Nova</div>
         <div style={styles.navLinks}>
-          <a href="#" style={styles.link}>
+          <a href="/" style={styles.link}>
             Home
           </a>
-          <a href="#" style={styles.link}>
-            Downloads
+       
+          <a href="#reviews" style={styles.link}>
+           Reviews
           </a>
-          <a href="#" style={styles.link}>
-            Community
-          </a>
-          <a href="#" style={styles.link}>
+          <a href="#about" style={styles.link}>
             About us
           </a>
-          <a href="#" style={styles.link}>
-            Resources
-          </a>
-          <a href="#" style={styles.link}>
+          <a href="#contacts " style={styles.link}>
             Contact
           </a>
-          <button style={styles.btn}>Sign up</button>
-          <button style={styles.btn2}>Sign in</button>
+          <a href="/sign-up"><button style={styles.btn}>Sign up</button></a>
+          <a href="/sign-in"><button style={styles.btn2}>Log in</button></a>
         </div>
       </nav>
 
@@ -310,124 +319,224 @@ const Home = () => {
       <div style={styles.heroSection}>
         <h1 style={styles.heroText}>Skill Nova</h1>
         <p style={styles.subText}>
-          Get started with our non degree e-learning programs. signup and start
-          your journey
+          Get started with our non degree <br /> e-learning programs. signup and start
+          your journey <hr />
         </p>
-        <button style={styles.btn3}>Sign up</button>
+       <a className="btn btn-secondary py-3 px-5 mt-3" href="/sign-up"><button >Sign up</button></a> 
       </div>
+      <>
+  {/* About Start */}
+  <div className="container-xxl py-6" id="about">
+    <div className="container">
+      <div className="row g-5">
+        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div className="d-flex align-items-center mb-5">
+            <div className="years flex-shrink-0 text-center me-4">
+              <h1 className="display-1 mb-0">01</h1>
+              <h5 className="mb-0">Day</h5>
+            </div>
+            <h3 className="lh-base mb-0">
+            Welcome to Day 1 <br />of Your Learning Journey! 🚀
+            </h3>
+          </div>
+          <p className="mb-4">
+          Hi there! 👋 We're thrilled to have you here as you embark on this exciting adventure with us. Today is all about setting the tone for your success and unlocking the potential within you. <br />
 
-      {/* Schedule Section */}
+Whether you're here to learn something new, sharpen your skills, or chase your dreams, remember that every expert once started as a beginner. Take one step at a time, and don’t forget to celebrate the small victories along the way! 🎉
+<hr />
+Here's what you can do today: <br />
+✅ Explore your learning dashboard. <br />
+✅ Set your goals for the week. <br />
+✅ Dive into your first lesson and start making progress!
+          </p>
+          <p className="mb-3">
+            <i className="far fa-check-circle text-primary me-3" />
+            Free cources
+          </p>
+          <p className="mb-3">
+            <i className="far fa-check-circle text-primary me-3" />
+            Big community
+          </p>
+          <p className="mb-3">
+            <i className="far fa-check-circle text-primary me-3" />
+            peer to peer learning
+          </p>
+          <a className="btn btn-primary py-3 px-5 mt-3" href="">
+            Read More
+          </a>
+        </div>
+        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div className="row g-3 mb-4">
+            <div className="col-sm-6">
+              <img className="img-fluidrounded" src="public/assets/dashimages/12.jpg" alt="" />
+            </div>
+            <div className="col-sm-6">
+              <img className="img-fluidrounded" src="public/assets/dashimages/14.jpg" alt="" />
+            </div>
+          </div>
+          <div className="d-flex align-items-center mb-3">
+            <h5 className="border-end pe-3 me-3 mb-0">Students Enrolled</h5>
+            <h2 className=" fw-bold mb-0" >
+              OVER 1MILL
+            </h2>
+          </div>
+          <p className="mb-4">
+          Join a Growing Community of Learners! 🌟
+Thousands of students have already taken the leap and are transforming their lives with SkillNova. Now it’s your turn! <br />
 
-      <div
-        style={{
-          margin: "30px",
-          color: "#fff",
-          fontSize: 42,
-          fontWeight: "400",
-          wordWrap: "break-word",
-        }}
-      >
-        Schedules
-      </div>
-      <div style={styles.scheduleSection}>
-        <div style={styles.scheduleCard}>
-          <p style={styles.cardTitle}>08:00AM</p>
-          <p>lecture: beginer html</p>
-          <button style={styles.btn4}>RSVP</button>
-        </div>
-        <div style={styles.scheduleCard2}>
-          <p style={styles.cardTitle}>09:00AM</p>
-          <p>lecture: beginer css</p>
-          <button style={styles.btn4}>RSVP</button>
-        </div>
-        <div style={styles.scheduleCard}>
-          <p style={styles.cardTitle}>10:00AM</p>
-          <p>lecture: Intermidet html</p>
-          <button style={styles.btn4}>RSVP</button>
-        </div>
-        <div style={styles.scheduleCard2}>
-          <p style={styles.cardTitle}>09:00AM</p>
-          <p>lecture: Intermidiet css</p>
-          <button style={styles.btn4}>RSVP</button>
-        </div>{" "}
-      </div>
+📚 Why wait? Enroll now and start learning today! <hr />
 
-      {/* Now Showing Section */}
-      <div
-        style={{
-          width: "94%",
-          margin: "40px",
-          color: "#fff",
-          fontSize: 42,
-          fontWeight: "400",
-          wordWrap: "break-word",
-        }}
-      >
-        Course Updates
-      </div>
-      <div style={styles.nowShowingSection}>
-        <div style={styles.nowShowingCard}>
-          <img
-            src="public/assets/dashimages/ic.jfif"
-            alt="Now Showing"
-            style={styles.nowShowingImage}
-          />
-          <div style={styles.nowShowingDetails}>
-            <p style={styles.nowShowingTitle}>Now Showing</p>
-            <p>Episode: Intermediate Css</p>
+We can’t wait to see you <a style={{color:"#5097fb"}} href="/sign-up">inside!</a>
+– The SkillNova Team 
+          </p>
+          <div className="d-flex align-items-center mb-3">
+            <h5 className="border-end pe-3 me-3 mb-0">Projects Completed</h5>
+            <h2 className="fw-bold mb-0" >
+              +100
+            </h2>
           </div>
-          <img
-            src="public/assets/dashimages/js.jfif"
-            alt="Now Showing"
-            style={styles.nowShowingImage}
-          />
-          <div style={styles.nowShowingDetails}>
-            <p style={styles.nowShowingTitle}>Now Showing</p>
-            <p>Episode: Intermediate Html</p>
-          </div>
-        </div>
-        <div style={styles.nowShowingCard}>
-          <img
-            src="public/assets/dashimages/ih.jfif"
-            alt="Next"
-            style={styles.nowShowingImage}
-          />
-          <div style={styles.nowShowingDetails}>
-            <p style={styles.nowShowingTitle}>Next</p>
-            <p>Episode: mastering HTML & CSS </p>
-          </div>
-          <img
-            src="public/assets/dashimages/p.jfif"
-            alt="Next"
-            style={styles.nowShowingImage}
-          />
-          <div style={styles.nowShowingDetails}>
-            <p style={styles.nowShowingTitle}>Next</p>
-            <p>Episode:PHP for beginers </p>
-          </div>
-        </div>
-        <div style={styles.nowShowingCard}>
-          <img
-            src="public/assets/dashimages/h.jfif"
-            alt="Next"
-            style={styles.nowShowingImage}
-          />
-          <div style={styles.nowShowingDetails}>
-            <p style={styles.nowShowingTitle}>Next</p>
-            <p>Episode: Learn HTML </p>
-          </div>
-          <img
-            src="public/assets/dashimages/sql.jfif"
-            alt="Next"
-            style={styles.nowShowingImage}
-          />
-          <div style={styles.nowShowingDetails}>
-            <p style={styles.nowShowingTitle}>Next</p>
-            <p>Episode: Learb SQL</p>
-          </div>
+          <p className="mb-0">
+          
+At SkillNova, our learners don’t just study – they create, build, and achieve. 🎓 Over 100 projects have been successfully completed by our students, ranging from innovative tech solutions to inspiring creative works. <br />
+<hr />
+Here’s a glimpse of what our learners have accomplished: <br />
+🔹 A mobile app that simplifies daily tasks.<br />
+🔹 A stunning portfolio website that landed a dream job.<br />
+🔹 A data analysis project that solved real-world business challenges.<br />
+
+💡 Whether you're developing your first project or refining advanced skills, 
+
+ Enroll today and bring your ideas to life!
+
+We can’t wait to celebrate your success!
+          </p>
         </div>
       </div>
-      <div style={cstyles.container}>
+    </div>
+  </div>
+  {/* About End */}
+  {/* Service Start */}
+  <div className="container-fluid  my-5 py-6" id="service">
+    <div className="container">
+      <div className=" row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div className="col-lg-6">
+          <h1 className="display-5 mb-0">COURCES</h1>
+        </div>
+        <div className="col-lg-6 text-lg-end">
+          <a className="btn btn-primary py-3 px-5" href="/sign-up">
+            Enroll Now
+          </a>
+        </div>
+      </div>
+      <div className="row g-4">
+        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div className="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
+            <div className="bg-icon flex-shrink-0 mb-3">
+              <i className="fa fa-crop-alt fa-2x text-dark" />
+            </div>
+            <div className="ms-sm-4">
+              <h4 className="mb-3">HTML-LESSONS</h4>
+              
+              <span style={{color:"#000"}}>
+              Learn the foundation of the web by building structured, accessible, and semantic web pages with HTML. <hr />
+              </span>
+              <h6 className="mb-3">
+                <a className="text-primary" href='/sign-up'>Start Now</a>
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div className="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
+            <div className="bg-icon2 flex-shrink-0 mb-3">
+              <i className="fa fa-code-branch fa-2x text-dark" />
+            </div>
+            <div className="ms-sm-4">
+              <h4 className="mb-3">CSS-LESSONS</h4>
+              
+              <span style={{color:"#000"}}>
+              Master the art of styling with CSS to create visually appealing layouts, responsive designs, and stunning user interfaces. <hr />
+              </span>
+              <h6 className="mb-3">
+              <a className="text-primary" href='/sign-up'>Start Now</a>
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div className="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
+            <div className="bg-icon3 flex-shrink-0 mb-3">
+              <i className="fa fa-code fa-2x text-dark" />
+            </div>
+            <div className="ms-sm-4">
+              <h4 className="mb-3">PHP-COURSES</h4>
+              
+              <span style={{color:"#000"}}>
+              Dive into server-side scripting with PHP and create dynamic, data-driven websites and applications. <hr />
+              </span>
+              <h6 className="mb-3">
+              <a className="text-primary" href='/sign-up'>Start Now</a>
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div className="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
+            <div className="bg-icon4 flex-shrink-0 mb-3">
+              <i className="fa fa-laptop-code fa-2x text-dark" />
+            </div>
+            <div className="ms-sm-4">
+              <h4 className="mb-3">JAVA SCRIPT-LESSONS</h4>
+              
+              <span style={{color:"#000"}}>
+              Bring your websites to life with JavaScript by adding interactivity, animations, and powerful functionality. <hr />
+              </span><h6 className="mb-3">
+              <a className="text-primary" href='/sign-up'>Start Now</a>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {/* Service End */}
+  <div className="reviews-container" id='reviews'>
+  <h2 className="reviews-title">What Our Students Are Saying</h2>
+  <div className="reviews-cards">
+    <div className="review-card">
+      <div className="review-header">
+        <h3 className="review-name">John Doe</h3>
+        <div className="review-rating">★★★★★</div>
+      </div>
+      <p className="review-text">
+        SkillNova has completely transformed my learning journey. The courses are engaging, and the community is supportive.
+      </p>
+    </div>
+    <div className="review-card">
+      <div className="review-header">
+        <h3 className="review-name">Jane Smith</h3>
+        <div className="review-rating">★★★★</div>
+      </div>
+      <p className="review-text">
+        I loved how the platform breaks complex topics into easy-to-understand lessons. Highly recommended!
+      </p>
+    </div>
+    <div className="review-card">
+      <div className="review-header">
+        <h3 className="review-name">Alice Johnson</h3>
+        <div className="review-rating">★★★★★</div>
+      </div>
+      <p className="review-text">
+        The hands-on projects helped me apply the knowledge I gained, and the feedback was incredibly valuable.
+      </p>
+    </div>
+  </div>
+</div>
+  </>
+
+      
+ 
+      <div style={cstyles.container} id='contacts'>
         <div style={cstyles.heading}>
           <h1 style={cstyles.headingTitle}>Contact Us</h1>
           <p style={cstyles.headingSub}>We'd love to hear from you!</p>
@@ -436,7 +545,7 @@ const Home = () => {
           <div>
             <label htmlFor="name" style={cstyles.label}>
               Name
-            </label>
+            </label> <br />
             <input
               type="text"
               id="name"
@@ -448,7 +557,7 @@ const Home = () => {
           <div>
             <label htmlFor="email" style={cstyles.label}>
               Email
-            </label>
+            </label> <br />
             <input
               type="email"
               id="email"
@@ -460,14 +569,14 @@ const Home = () => {
           <div>
             <label htmlFor="message" style={cstyles.label}>
               Message
-            </label>
+            </label><br />
             <input
               type="text"
               id="name"
               name="name"
               placeholder="Enter your message"
               style={cstyles.input}
-            />
+            /> 
           </div>
           <button
             type="submit"
@@ -488,7 +597,7 @@ const Home = () => {
         <div style={footerStyles.innerContainer}>
           {/* Logo Section */}
           <div style={footerStyles.logoSection}>
-            <h3>Socials</h3>
+            <h3 style={{color:"#fff"}}>Socials</h3>
             <div style={footerStyles.logoIcons}>
               <img
                 style={footerStyles.logoIcon}
@@ -547,6 +656,12 @@ const Home = () => {
         </div>
       </footer>
     </div>
+      
+      <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+  
+  
+     
+    </>
   );
 };
 

@@ -1,0 +1,141 @@
+.auth-form-container {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    padding: 20px;
+  }
+  
+  .auth-form {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .auth-form:hover {
+    transform: scale(1.02);
+  }
+  
+  .form-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+    background-color: #fff;
+    color: #2c3e50;
+  }
+  
+  .form-group input:focus {
+    border: 1px solid #3498db;
+    outline: none;
+    background-color: #f9f9f9;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #4ca1af, #2c3e50);
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    transform: translateY(-2px);
+  }
+  
+  .form-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  
+  .register-link {
+    color: #3498db;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .register-link:hover {
+    color: #4ca1af;
+  }
+  
+  .error-message {
+    margin-top: 20px;
+    color: #e74c3c;
+    font-size: 14px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .auth-form {
+      padding: 30px;
+      max-width: 350px;
+    }
+  
+    .form-title {
+      font-size: 24px;
+    }
+  
+    .form-group input {
+      font-size: 14px;
+    }
+  
+    .submit-button {
+      padding: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .auth-form {
+      padding: 20px;
+      max-width: 90%;
+    }
+  
+    .form-title {
+      font-size: 22px;
+    }
+  
+    .form-group input {
+      font-size: 13px;
+    }
+  
+    .submit-button {
+      padding: 10px;
+    }
+  }
+  

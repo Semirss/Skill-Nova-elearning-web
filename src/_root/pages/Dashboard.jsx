@@ -1,7 +1,8 @@
 // import Topbar from "../../components/TopBar"
-
+import "/src/_root/pages/dash.css";
 const Dashboard = () => {
   const styles = {
+    
     container: {
       display: "grid",
       gridTemplateColumns: "1fr",
@@ -9,11 +10,13 @@ const Dashboard = () => {
       padding: "1rem",
       maxWidth: "1200px",
       margin: "0",
+
     },
     dashboardHeader: {
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit, minmax(10px, 1fr))",
       gap: "1rem",
+
     },
     card: {
       color: "#000",
@@ -130,10 +133,11 @@ const Dashboard = () => {
       fontSize: "1.25rem",
       fontWeight: "bold",
       marginBottom: "0.5rem",
+      color: "#fff",
     },
     featureDescription: {
       fontSize: "1rem",
-      color: "#555",
+      color: "#fff",
     },
   };
   const footerStyles = {
@@ -156,6 +160,7 @@ const Dashboard = () => {
       display: "flex",
       flexDirection: "column",
       alignItems: "flex-start",
+      color: "#fff",
     },
     logoIcons: {
       display: "flex",
@@ -175,6 +180,7 @@ const Dashboard = () => {
       fontSize: "1.1rem",
       fontWeight: "bold",
       marginBottom: "0.5rem",
+      color: "#fff",
     },
     columnItem: {
       fontSize: "0.9rem",
@@ -195,15 +201,11 @@ const Dashboard = () => {
           className="Dashboard"
           style={{
             marginLeft: "17px",
-            color: "#242730",
-            fontSize: 22,
-            fontFamily: "Poppins",
-            fontWeight: "700",
-            wordWrap: "break-word",
+            
           }}
         >
-          Dashboard
-        </div>
+          <h3 style={{color:"#fff"}}>Dashboard <hr /></h3>
+          </div>
         <div style={styles.container}>
           {/* Dashboard Header */}
           <div style={styles.dashboardHeader}>
@@ -219,7 +221,7 @@ const Dashboard = () => {
                   borderRadius: "50%",
                 }}
               />
-              <h4>Resources</h4>
+              <a href="https://www.google.co.uk/"><h4>Resources</h4></a>
             </div>
             <div style={styles.card}>
               <img
@@ -228,8 +230,8 @@ const Dashboard = () => {
                 className="r"
                 style={{ width: "100%", height: "100%", borderRadius: "50%" }}
               />
-              <h4>Peers</h4>
-            </div>
+              <a href="/settings"><h4>Profile</h4></a>
+              </div>
             <div style={styles.card}>
               <img
                 src="public/assets/dashimages/5.jfif"
@@ -237,8 +239,8 @@ const Dashboard = () => {
                 className="r"
                 style={{ width: "100%", height: "100%", borderRadius: "50%" }}
               />
-              <h4>Progress</h4>
-            </div>
+              <a href="/all courses "><h4>All-courses</h4></a>
+              </div>
             <div style={styles.card}>
               <img
                 src="public/assets/dashimages/4.jfif"
@@ -246,99 +248,108 @@ const Dashboard = () => {
                 className="r"
                 style={{ width: "100%", height: "100%", borderRadius: "50%" }}
               />
-              <h4>Community</h4>
-            </div>
+              <a href="/rooms"><h4>Rooms</h4></a>
+              </div>
           </div>
-          <div
-            className="cources"
-            style={{
-              color: "#242730",
-              fontSize: 22,
-              fontFamily: "Poppins",
-              fontWeight: "700",
-              wordWrap: "break-word",
-            }}
-          >
-          <p>Cources</p>
-          </div>
+          <hr style={{color:"#fff"}}/>
 
-          {/* Courses Section */}
-          <div style={styles.coursesSection}>
-            <div style={styles.courseCard}>
-              <img
-                src="public/assets/dashimages/9.png"
-                alt="CSS Tutorial"
-                style={styles.courseImage}
-              />
-              <div style={styles.courseContent}>
-                <h3>Learn CSS</h3>
-                <p>Get started with our non-degree CSS course.</p>
-                <button style={{ backgroundColor: "#000047", color: "#fff" }}>
-                  Get started
-                </button>
-              </div>
+           {/* Service Start */}
+  <div className="containers1" id="service">
+    <div className="containers">
+      <div className="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div className="col-lg-6">
+          <h3 style={{color:"#fff"}}>COURCES </h3>
+        </div>
+        <div className="col-lg-6 d-flex justify-content-end">
+          <a className="btn btn-primary py-3 px-5" href="/all courses">
+            start now
+          </a>
+        </div>
+      </div>
+      <div className="row g-4">
+        <div className="col--6 wow fadeInUp" data-wow-delay="0.1s">
+          <div className="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
+            <div className="bg-icond1 flex-shrink-0 mb-3">
+              <i className="fa fa-crop-alt fa-2x text-dark" />
             </div>
-            <div style={styles.courseCard}>
-              <img
-                src="public/assets/dashimages/10.jpg"
-                alt="HTML Tutorial"
-                style={styles.courseImage}
-              />
-              <div style={styles.courseContent}>
-                <h3>Learn HTML</h3>
-                <p>Get started with our non-degree HTML course.</p>
-                <button style={{ backgroundColor: "#000047", color: "#fff" }}>
-                  Get started
-                </button>
-              </div>
-            </div>
-
-            {/* Quick Start Section */}
-            <div style={styles.quickStartSection}>
-              <div
-                className="Dashboard"
-                style={{
-                  color: "#242730",
-                  fontSize: 22,
-                  fontFamily: "Poppins",
-                  fontWeight: "700",
-                  wordWrap: "break-word",
-                  marginBottom: "10px",
-                  marginTop: "-21px",
-                }}
-              >
-                <h1 className="qs">Quick start</h1>
-              </div>
-
-              <div style={styles.quickStartCard}>
-                <h4>Exam</h4>
-              </div>
-              <div style={styles.quickStartCard2}>
-                <h4>Students</h4>
-              </div>
-              <div style={styles.quickStartCard}>
-                <h4>Programs</h4>
-              </div>
-              <div style={styles.quickStartCard2}>
-                <h4>Message</h4>
-              </div>
+            <div className="ms-sm-4">
+              <h4 className="mb-3">HTML-LESSONS</h4>
+              
+              <span style={{color:"#000"}}>
+              Learn the foundation of the web by building structured, accessible, and semantic web pages with HTML. <hr />
+              </span>
+              <h6 className="mb-3">
+              <a className="text-primary" href='/all courses'>Get started</a>
+              </h6>
             </div>
           </div>
         </div>
+        <div className="-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div className="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
+            <div className="bg-icond2 flex-shrink-0 mb-3">
+              <i className="fa fa-code-branch fa-2x text-dark" />
+            </div>
+            <div className="ms-sm-4">
+              <h4 className="mb-3">CSS-LESSONS</h4>
+              
+              <span style={{color:"#000"}}>
+              Master the art of styling with CSS to create visually appealing layouts, responsive designs, and stunning user interfaces. <hr />
+              </span>
+              <h6 className="mb-3">
+              <a className="text-primary" href='/all courses'>Get started</a>
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div className="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
+            <div className="bg-icond3 flex-shrink-0 mb-3">
+              <i className="fa fa-code fa-2x text-dark" />
+            </div>
+            <div className="ms-sm-4">
+              <h4 className="mb-3">PHP-COURSES</h4>
+              
+              <span style={{color:"#000"}}>
+              Dive into server-side scripting with PHP and create dynamic, data-driven websites and applications. <hr />
+              </span>
+              <h6 className="mb-3">
+              <a className="text-primary" href='/all courses'>Get started</a>
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div className="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
+            <div className="bg-icond4 flex-shrink-0 mb-3">
+              <i className="fa fa-laptop-code fa-2x text-dark" />
+            </div>
+            <div className="ms-sm-4">
+              <h4 className="mb-3">JAVA SCRIPT-LESSONS</h4>
+              
+              <span style={{color:"#000"}}>
+              Bring your websites to life with JavaScript by adding interactivity, animations, and powerful functionality. <hr />
+              </span><h6 className="mb-3">
+              <a className="text-primary" href='/all courses'>Get started</a>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+  {/* Service End */}
 
         <div style={featureStyles.container}>
           {/* Features Section */}
           <div
             className="cources"
             style={{
-              color: "#242730",
-              fontSize: 22,
-              fontFamily: "Poppins",
-              fontWeight: "700",
-              wordWrap: "break-word",
+              
+              
             }}
           >
-            <p>Feature</p>
+          <h3 style={{color:"#fff"}}>Features </h3>  <hr style={{color:"#fff"}}/>
+
           </div>
 
           {/* Features Grid */}
@@ -407,7 +418,7 @@ const Dashboard = () => {
             <div style={footerStyles.innerContainer}>
               {/* Logo Section */}
               <div style={footerStyles.logoSection}>
-                <h3>Logo</h3>
+                <h3 style={{color:"#fff"}}>Socials</h3>
                 <div style={footerStyles.logoIcons}>
                   <img
                     style={footerStyles.logoIcon}

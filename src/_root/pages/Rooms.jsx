@@ -82,11 +82,11 @@ const Rooms = () => {
             )
           ))}
         </div>
-        <div className="hidden lg:flex flex-col gap-5 w-72 bg-white border-2 border-gray-100 items-center pt-5 pb-7 absolute right-20 h-96 rounded-lg shadow-lg">
+        <div className="hidden lg:flex flex-col gap-5 w-72 bg-white border-2 border-gray-100 items-center pt-5 pb-7 absolute right-20 h-max rounded-lg shadow-lg">
           <p className="text-slate-500 text-lg border-b-2 border-gray-400 pb-2">Browse Topics</p>
           <ul className="border-b-2 border-gray-400 text-center">
             <li className="w-full">
-              <p className="cursor-pointer py-2 hover:text-blue-500 transition"
+              <p className="cursor-pointer  text-black hover:text-blue-500 transition"
                 onClick={() => handleList("all")}>
                 All
               </p>
@@ -95,7 +95,7 @@ const Rooms = () => {
           {data.map((item, index) => (
             <ul key={index} className="border-b-2 border-gray-400 text-center">
               <li className="w-full">
-                <p className="cursor-pointer py-2 hover:text-blue-500 transition"
+                <p className="cursor-pointer py-2 text-black hover:text-blue-500 transition"
                   onClick={() => handleList(item.roomID)}>
                   {item.title}
                 </p>

@@ -3,13 +3,11 @@ const Topbar = () => {
   const firstLetter = userName.charAt(0).toUpperCase();
   return (
     <div className="relative">
-        <h1 className="absolute left-80 top-7 z-10">Hello User</h1>
+        
         <div className="topbar">
-          <form action="">
-              <input className="w-80 rounded-xl p-2" type="text" placeholder="Search"/>
-          </form>
+         <h3 style={{color:"#fff"}} className=" left-60 top-7 z-10">Welcome User</h3>
           <div className="profile-pic">
-              <p className="text-white ps-4 pt-1">{firstLetter}</p>
+              <p style={{textAlign:"center"}} className="text-white  pt-2">{firstLetter}</p>
           </div>
         </div>
     </div>

@@ -5,9 +5,11 @@
 @layer base {
   * {
     @apply box-border list-none p-0 m-0;
+    
   }
   html, body {
-    @apply font-sans bg-secondary h-[100%];
+    @apply font-sans  h-[100%];
+    background: #010c13;
   }
   input {
     @apply border-2 ms-2 ps-2 pe-5;
@@ -15,9 +17,14 @@
   img {
     width: 22px;
     height: 22px;
+    
   }
   ul {
     @apply flex gap-2;
+  }
+  li{
+    color: aliceblue;
+
   }
   table, th, td {
     border: 1px solid black;
@@ -44,7 +51,9 @@
     @apply pt-7 flex flex-col;
   }
   .left-sidebar {
-    @apply hidden md:block md:fixed md:w-full max-w-[270px] bg-primary min-h-screen text-white;
+    @apply hidden md:block md:relative md:w-full max-w-[270px]  min-h-screen text-white;
+    background: linear-gradient(-100deg, #051330, #c74afc);
+    height: 540vh
   }
   .topbar {
     @apply hidden md:flex bg-primary md:bg-transparent h-14 fixed top-0 z-10 right-10 text-primary
@@ -53,6 +62,7 @@
   .dashboard, .courses, .settings, .rooms, .first-room, .course-1 {
     @apply flex flex-col text-primary
     absolute top-0 left-0 md:left-[270px] right-0 pt-20 ps-12 bottom-0;
+    background-color: #000;
   }
   .navbar-top {
     @apply pt-16 md:ps-16 flex flex-col gap-16 items-center md:items-start;
@@ -63,6 +73,9 @@
   .profile-pic {
     @apply w-10 h-10 bg-cyan-900;
     border-radius: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
   .toggle-bar {
     @apply md:hidden fixed top-0 left-0 right-0 z-10;

@@ -33,9 +33,9 @@ const AllCourses = () => {
     showAll.style.display = "block";
   }
   return (
-    <div className="courses gap-12 mt-12">
+    <div className="courses ">
       <div className="relative">
-        <h1>All Courses</h1>
+        <h1 style={{color:"#fff"}}>All Courses</h1>
         <div className="relative all-courses pt-9">
           <ul>
             {data.map((item, index) => (
@@ -50,7 +50,7 @@ const AllCourses = () => {
                       <small className="text-gray-500">{item.duration}</small>
                     </div>
                     <div className="mb-10 flex bg-primary text-white ms-9 me-9 rounded-xl">
-                      <a href={`${item.details}?courseID=${item.courseID}`} className="w-[100%] text-center h-8 pt-1">View Details</a>
+                      <a href={`${item.details}?courseID=${item.courseID}`} style={{color:"#fff"}} className="w-[100%] text-center h-8 pt-1">View Details</a>
                     </div>
                   </section>
                 </li>
@@ -86,7 +86,7 @@ const AllCourses = () => {
         )}
       </div>
       <div className="featured relative mt-12">
-        <p className="text-xl font-semibold">Featured</p>
+        <p style={{color:"#fff"}} className="text-xl font-semibold">Featured</p>
         <div className="relative">
           <ul className="mb-14 flex flex-col gap-5">
             {data.map((item, index) => (
