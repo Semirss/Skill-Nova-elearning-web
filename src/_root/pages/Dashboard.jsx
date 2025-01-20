@@ -209,7 +209,7 @@ const Dashboard = () => {
         <div style={styles.container}>
           {/* Dashboard Header */}
           <div style={styles.dashboardHeader}>
-            <div style={styles.card}>
+            <div id="card" >
               <img
                 src="public/assets/dashimages/16.jfif"
                 alt=""
@@ -223,7 +223,7 @@ const Dashboard = () => {
               />
               <a href="https://www.google.co.uk/"><h4>Resources</h4></a>
             </div>
-            <div style={styles.card}>
+            <div id="card" >
               <img
                 src="public/assets/dashimages/18.jfif"
                 alt=""
@@ -232,7 +232,7 @@ const Dashboard = () => {
               />
               <a href="/settings"><h4>Profile</h4></a>
               </div>
-            <div style={styles.card}>
+            <div id="card" >
               <img
                 src="public/assets/dashimages/5.jfif"
                 alt=""
@@ -241,7 +241,7 @@ const Dashboard = () => {
               />
               <a href="/all courses "><h4>All-courses</h4></a>
               </div>
-            <div style={styles.card}>
+            <div id="card" >
               <img
                 src="public/assets/dashimages/4.jfif"
                 alt=""

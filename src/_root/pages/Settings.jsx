@@ -37,8 +37,7 @@ const Settings = () => {
             email,
             password,
             userID
-        };
-    
+        }; 
         console.log('Sending request:', requestData);
     
         try {
@@ -147,9 +146,7 @@ const Settings = () => {
             <div className="delete-account p-6 bg-white shadow-md rounded-lg">
                 <h5 className="text-xl font-semibold mb-4">Delete Account</h5>
                 <div className="mb-6">
-                    <p className="text-gray-700">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus
-                        ullam velit eos saepe ut molestiae alias reprehenderit
-                        ipsam repudiandae omnis, atque molestias voluptate quae, officiis,
+                    <p className="text-gray-700">Once you delete your account, there is no going back. Please be certain.
                     </p>
                     <button onClick={deleteAccount} className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300">
                         Delete Account

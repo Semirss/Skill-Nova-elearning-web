@@ -37,7 +37,7 @@ const AllCourses = () => {
       <div className="relative">
         <h1 style={{color:"#fff"}}>All Courses</h1>
         <div className="relative all-courses pt-9">
-          <ul>
+          <ul >
             {data.map((item, index) => (
               index < 3 && (
                 <li key={index} className="relative w-[80%] bg-white border-[1.9px] border-gray-300 rounded-lg mb-4">

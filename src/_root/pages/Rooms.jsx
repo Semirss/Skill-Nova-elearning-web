@@ -28,8 +28,8 @@ const Rooms = () => {
     navigate(`/rooms/room?answerRoomID=${roomID}&title=${roomTitle}`);
   }
   return (
-    <div className="rooms flex flex-col gap-8 mt-14 md:mt-0">
-      <h1 className="pt-10 text-4xl font-extrabold text-center text-blue-600">Rooms</h1>
+    <div className="rooms flex flex-col gap-8 mt-14 md:mt-0"> 
+      <h1 className="pt-10 text-4xl font-extrabold text-center text-blue-600"> Rooms</h1> <hr style={{color:"#fff"}} />
       <div className="flex flex-row relative">
         <div className="flex flex-col gap-5 absolute left-10 top-0 right-20 lg:right-[30rem]">
           {visibleist === "all" && (
@@ -88,7 +88,7 @@ const Rooms = () => {
             <li className="w-full">
               <p className="cursor-pointer  text-black hover:text-blue-500 transition"
                 onClick={() => handleList("all")}>
-                All
+                All 
               </p>
             </li>
           </ul>

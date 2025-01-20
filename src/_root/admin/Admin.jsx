@@ -12,10 +12,11 @@ const Admin = () => {
         <h1 className="text-2xl font-bold">Skill Nova</h1>
       </header>
       <main className="container mx-auto mt-20 px-4 md:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          
           {links.map((link, index) => (
             <a key={index} href={link.href}
-              className="h-52 flex flex-col items-center justify-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+              className="h-52 w-52 flex flex-col items-center justify-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
               <h1 className="text-lg font-semibold mb-2 text-gray-800">{link.title}</h1>
               <img src={link.imgSrc} alt={link.imgAlt}
                 className="w-24 h-24 border-white border-2 rounded-full"/>

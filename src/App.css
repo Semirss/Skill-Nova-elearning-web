@@ -19,8 +19,12 @@
     height: 22px;
     
   }
-  ul {
+  ul.ls {
     @apply flex gap-2;
+  }
+  ul.ls:hover{
+    transform: scale(1.2) translateX(20px);
+    transition: all 0.3s ease;
   }
   li{
     color: aliceblue;
@@ -55,6 +59,7 @@
     background: linear-gradient(-100deg, #051330, #c74afc);
     height: 540vh
   }
+
   .topbar {
     @apply hidden md:flex bg-primary md:bg-transparent h-14 fixed top-0 z-10 right-10 text-primary
     ps-[37rem] pt-3 gap-5;
