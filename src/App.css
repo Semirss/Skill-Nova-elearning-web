@@ -55,12 +55,15 @@
     @apply pt-7 flex flex-col;
   }
   .left-sidebar {
-    @apply hidden md:block md:relative md:w-full max-w-[270px]  min-h-screen text-white;
+    @apply hidden md:block md:fixed md:w-full max-w-[270px] bg-primary min-h-screen text-white;
+    /* @apply hidden md:block md:relative md:w-full max-w-[270px]  min-h-screen text-white; */
     background: linear-gradient(-100deg, #051330, #c74afc);
-    height: 540vh
+    height: 540vh;
   }
 
   .topbar {
+    /* @apply hidden md:flex bg-primary md:bg-transparent h-14 fixed top-0 z-10 right-10 text-primary
+    ps-[37rem] pt-3 gap-5; */
     @apply hidden md:flex bg-primary md:bg-transparent h-14 fixed top-0 z-10 right-10 text-primary
     ps-[37rem] pt-3 gap-5;
   }

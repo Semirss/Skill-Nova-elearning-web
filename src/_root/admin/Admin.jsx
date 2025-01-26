@@ -3,7 +3,6 @@ const Admin = () => {
     { href: "/admin/students", title: "Students", imgSrc: "/assets/images/students.png", imgAlt: "Students" },
     { href: "/admin-page/courses", title: "Courses", imgSrc: "/assets/images/add-courses.png", imgAlt: "Courses" },
     { href: "admin-page/all-rooms", title: "Rooms", imgSrc: "/assets/images/add-rooms.png", imgAlt: "Rooms" },
-    { href: "/admin/quizzes", title: "Create Quizzes", imgSrc: "/assets/images/quizzes.png", imgAlt: "Create Quizzes" }
   ];
 
   return (

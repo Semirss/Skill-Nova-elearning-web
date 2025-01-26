@@ -10,7 +10,6 @@ import Rooms from './_root/pages/Rooms'
 import Settings from './_root/pages/Settings'
 import Admin from './_root/admin/Admin'
 import Students from './_root/admin/Students'
-import Quizzes from './_root/admin/quizzes'
 import Questions from './_root/admin/Questions'
 import Details1 from './_root/pages/subpages/Courses/course details/details1'
 import Details2 from './_root/pages/subpages/Courses/course details/Details2'
@@ -60,7 +59,6 @@ function App() {
         <Route path='admin-page/all-rooms/room' element={<AdminRoom />}></Route>
         <Route path='/admin-page/all-rooms/room/answer' element={<Answer />}/>
         <Route path='/admin/students' element={<Students />}/>
-        <Route path='/admin/quizzes' element={<Quizzes />}/>
         <Route path='/admin/quizzes/html/questions' element={<Questions />}/>
       </Routes>
     </main>
